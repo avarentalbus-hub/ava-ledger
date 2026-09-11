@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -9,7 +9,7 @@
 :root { --bg:#0f172a; --surface:#1e293b; --surface2:#263449; --text:#f1f5f9; --muted:#94a3b8; --primary:#3b82f6; --primary-hover:#2563eb; --success:#22c55e; --danger:#ef4444; --warning:#f59e0b; --vat:#a855f7; --border:#334155; --radius:12px; --shadow:0 4px 20px rgba(0,0,0,0.3); }
 [data-theme="light"] { --bg:#f1f5f9; --surface:#ffffff; --surface2:#f8fafc; --text:#0f172a; --muted:#64748b; --border:#e2e8f0; --shadow:0 4px 16px rgba(15,23,42,0.08); }
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--bg); color:var(--text); min-height:100vh; padding-bottom:96px; -webkit-tap-highlight-color:transparent; transition:background .2s; }
+body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Naskh Arabic",sans-serif; background:var(--bg); color:var(--text); min-height:100vh; padding-bottom:96px; -webkit-tap-highlight-color:transparent; transition:background .2s; }
 .header { background:var(--surface); border-bottom:1px solid var(--border); padding:12px 16px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:100; }
 .header-brand { display:flex; align-items:center; gap:10px; }
 .header-brand .logo { width:36px; height:36px; background:linear-gradient(135deg,var(--primary),#8b5cf6); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:18px; }
@@ -21,22 +21,23 @@ body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif
 .backup-banner.show { display:block; }
 .backup-banner a { text-decoration:underline; cursor:pointer; }
 .bottom-nav { position:fixed; bottom:0; left:0; right:0; background:var(--surface); border-top:1px solid var(--border); display:flex; justify-content:space-around; padding:8px 0 calc(8px + env(safe-area-inset-bottom)); z-index:100; }
-.nav-item { flex:1; display:flex; flex-direction:column; align-items:center; gap:2px; padding:6px; color:var(--muted); font-size:10px; cursor:pointer; border:none; background:none; transition:color .2s; }
+.nav-item { flex:1; display:flex; flex-direction:column; align-items:center; gap:2px; padding:6px 2px; color:var(--muted); font-size:9px; cursor:pointer; border:none; background:none; transition:color .2s; }
 .nav-item.active { color:var(--primary); }
-.nav-item .icon { font-size:20px; }
+.nav-item .icon { font-size:19px; }
 .fab { position:fixed; bottom:calc(78px + env(safe-area-inset-bottom)); right:18px; width:56px; height:56px; border-radius:50%; border:none; background:linear-gradient(135deg,var(--primary),#8b5cf6); color:#fff; font-size:28px; cursor:pointer; z-index:110; box-shadow:0 6px 20px rgba(59,130,246,.45); transition:transform .15s; }
 .fab:active { transform:scale(.92); }
+[dir="rtl"] .fab { right:auto; left:18px; }
 .content { padding:16px; max-width:860px; margin:0 auto; }
 .section { display:none; }
 .section.active { display:block; animation:fadeIn .25s ease; }
 @keyframes fadeIn { from { opacity:0; transform:translateY(6px);} to { opacity:1; transform:translateY(0);} }
 .card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:16px; margin-bottom:12px; }
-.card-title { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--muted); margin-bottom:12px; display:flex; align-items:center; justify-content:space-between; }
+.card-title { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--muted); margin-bottom:12px; display:flex; align-items:center; justify-content:space-between; gap:8px; }
 .balance-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px; }
 .balance-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:16px; text-align:center; cursor:pointer; transition:transform .15s; }
 .balance-card:active { transform:scale(.98); }
 .balance-card .label { font-size:12px; color:var(--muted); margin-bottom:6px; }
-.balance-card .amount { font-size:22px; font-weight:700; }
+.balance-card .amount { font-size:21px; font-weight:700; }
 .balance-card .trend { font-size:11px; color:var(--muted); margin-top:4px; }
 .stats-row { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:12px; }
 .stats-row.four { grid-template-columns:repeat(4,1fr); }
@@ -57,22 +58,26 @@ body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif
 .btn-ghost:hover { background:var(--surface2); color:var(--text); }
 .table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
 table { width:100%; border-collapse:collapse; font-size:13px; }
-th { text-align:left; padding:10px 10px; color:var(--muted); font-weight:600; font-size:10px; text-transform:uppercase; letter-spacing:.5px; border-bottom:1px solid var(--border); white-space:nowrap; background:var(--surface); }
+th { text-align:left; padding:10px; color:var(--muted); font-weight:600; font-size:10px; text-transform:uppercase; letter-spacing:.5px; border-bottom:1px solid var(--border); white-space:nowrap; background:var(--surface); }
+[dir="rtl"] th { text-align:right; }
 td { padding:10px; border-bottom:1px solid var(--border); white-space:nowrap; }
 tbody tr { cursor:pointer; }
 tbody tr:hover td { background:var(--surface2); }
 .num { text-align:right; font-variant-numeric:tabular-nums; }
+[dir="rtl"] .num { text-align:left; }
 .cell-sub { font-size:11px; color:var(--muted); white-space:normal; }
 .empty-state { text-align:center; padding:32px 16px; color:var(--muted); }
 .badge-ref { display:inline-block; background:rgba(59,130,246,.15); color:var(--primary); padding:1px 7px; border-radius:8px; font-size:10px; font-weight:700; margin-right:3px; }
 .badge-vat { display:inline-block; background:rgba(168,85,247,.18); color:var(--vat); padding:1px 7px; border-radius:8px; font-size:10px; font-weight:700; margin-right:3px; }
+.badge-party { display:inline-block; background:rgba(245,158,11,.15); color:var(--warning); padding:1px 7px; border-radius:8px; font-size:10px; font-weight:700; margin-right:3px; }
 .search-box { width:100%; padding:11px 14px; background:var(--bg); border:1px solid var(--border); border-radius:10px; color:var(--text); font-size:14px; margin-bottom:10px; outline:none; }
 .search-box:focus { border-color:var(--primary); }
 .filter-row { display:flex; gap:8px; margin-bottom:10px; flex-wrap:wrap; align-items:center; }
-.filter-row input { padding:8px 10px; background:var(--bg); border:1px solid var(--border); border-radius:8px; color:var(--text); font-size:13px; outline:none; }
+.filter-row input, .filter-row select { padding:8px 10px; background:var(--bg); border:1px solid var(--border); border-radius:8px; color:var(--text); font-size:13px; outline:none; }
 .chip-row { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px; }
 .chip { padding:6px 13px; border-radius:20px; border:1px solid var(--border); background:transparent; color:var(--muted); font-size:12px; font-weight:600; cursor:pointer; transition:all .15s; }
 .chip.active { background:var(--primary); border-color:var(--primary); color:#fff; }
+.chip.book-active { background:#8b5cf6; border-color:#8b5cf6; color:#fff; }
 .form-group { margin-bottom:12px; }
 .form-group label { display:block; font-size:11px; font-weight:700; color:var(--muted); margin-bottom:5px; text-transform:uppercase; letter-spacing:.3px; }
 .form-group input, .form-group select { width:100%; padding:11px 13px; background:var(--bg); border:1px solid var(--border); border-radius:10px; color:var(--text); font-size:14px; outline:none; font-family:inherit; }
@@ -96,6 +101,7 @@ tbody tr:hover td { background:var(--surface2); }
 .type-btn.expense .t-ico { background:rgba(239,68,68,.15); color:var(--danger); }
 .type-btn.income .t-ico { background:rgba(34,197,94,.15); color:var(--success); }
 .type-btn.transfer .t-ico { background:rgba(59,130,246,.15); color:var(--primary); }
+.type-btn.party .t-ico { background:rgba(245,158,11,.15); color:var(--warning); }
 .upload-zone { border:2px dashed var(--border); border-radius:12px; padding:16px; text-align:center; cursor:pointer; color:var(--muted); font-size:13px; transition:all .2s; }
 .upload-zone:hover { border-color:var(--primary); }
 .receipt-preview { margin-top:8px; max-width:100%; max-height:220px; border-radius:8px; display:none; border:1px solid var(--border); object-fit:contain; }
@@ -105,21 +111,30 @@ tbody tr:hover td { background:var(--surface2); }
 .d-row:last-child { border-bottom:none; }
 .d-label { color:var(--muted); font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:.3px; padding-top:2px; }
 .d-val { text-align:right; word-break:break-word; }
+[dir="rtl"] .d-val { text-align:left; }
 .bar-row { display:flex; align-items:center; gap:8px; margin-bottom:8px; font-size:12px; }
 .bar-label { width:110px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .bar-track { flex:1; background:rgba(148,163,184,.15); border-radius:6px; height:16px; overflow:hidden; }
-.bar-fill { height:100%; border-radius:6px; background:linear-gradient(90deg,var(--primary),#8b5cf6); transition:width .4s ease; }
+.bar-fill { height:100%; border-radius:6px; transition:width .4s ease; }
 .bar-amt { width:86px; text-align:right; font-variant-numeric:tabular-nums; }
-.cat-group { margin-bottom:10px; }
 .cat-top { display:flex; align-items:center; gap:6px; font-size:13px; padding:3px 0; }
-.cat-kids { color:var(--muted); }
 .cat-type { font-size:9px; font-weight:800; padding:2px 5px; border-radius:6px; }
 .cat-type.t-exp { background:rgba(239,68,68,.15); color:var(--danger); }
 .cat-type.t-inc { background:rgba(34,197,94,.15); color:var(--success); }
 .mini-del { background:none; border:none; color:var(--muted); cursor:pointer; font-size:14px; width:22px; height:22px; border-radius:50%; }
 .mini-del:hover { background:rgba(239,68,68,.15); color:var(--danger); }
+.party-row { display:flex; align-items:center; justify-content:space-between; gap:8px; padding:11px 10px; border:1px solid var(--border); border-radius:10px; margin-bottom:8px; cursor:pointer; transition:border-color .15s; }
+.party-row:hover { border-color:var(--primary); }
+.party-row .p-name { font-weight:700; font-size:14px; }
+.party-row .p-sub { font-size:11px; color:var(--muted); }
+.party-row .p-bal { font-weight:700; font-size:14px; text-align:right; }
+.book-row { display:flex; align-items:center; justify-content:space-between; gap:8px; padding:9px 10px; border:1px solid var(--border); border-radius:10px; margin-bottom:6px; }
+.book-row.active { border-color:#8b5cf6; }
 .muted-sm { font-size:12px; color:var(--muted); line-height:1.5; }
 .footer-note { text-align:center; font-size:11px; color:var(--muted); padding:8px 0 20px; }
+.big-balance { text-align:center; padding:14px; border-radius:12px; background:var(--bg); border:1px solid var(--border); margin-bottom:12px; }
+.big-balance .amt { font-size:26px; font-weight:800; }
+.big-balance .lbl { font-size:11px; color:var(--muted); margin-top:3px; }
 .toast { position:fixed; top:16px; left:50%; transform:translateX(-50%) translateY(-20px); padding:12px 20px; border-radius:10px; font-size:13px; font-weight:600; z-index:300; display:none; box-shadow:var(--shadow); max-width:90vw; text-align:center; opacity:0; transition:all .3s ease; }
 .toast.show { display:block; opacity:1; transform:translateX(-50%) translateY(0); }
 .toast.success { background:var(--success); color:#fff; }
@@ -136,116 +151,158 @@ tbody tr:hover td { background:var(--surface2); }
     <div class="logo">&#128176;</div>
     <div><h1>AVA Finance</h1><span>Passengers Transport — Dubai</span></div>
   </div>
-  <button class="btn-icon" id="themeToggleBtn" onclick="cycleTheme()" title="Toggle theme">&#127769;</button>
+  <button class="btn-icon" id="themeToggleBtn" onclick="cycleTheme()" title="Theme">&#127769;</button>
 </header>
 <div class="backup-banner" id="backupBanner">⚠️ No backup in over 7 days — <a onclick="exportJSON()">export JSON backup now</a></div>
 <main class="content">
   <section id="sec-home" class="section active">
+    <div class="chip-row" id="bookChips" style="margin-bottom:12px;"></div>
     <div class="balance-grid">
       <div class="balance-card" onclick="goLedger('Bank')">
-        <div class="label">&#127974; Bank Account</div>
+        <div class="label" data-i18n="lbl_bank">&#127974; Bank Account</div>
         <div class="amount" id="balBank">AED 0.00</div>
-        <div class="trend">tap to view ledger</div>
+        <div class="trend" data-i18n="tap_ledger">tap to view ledger</div>
       </div>
       <div class="balance-card" onclick="goLedger('PettyCash')">
-        <div class="label">&#128188; Petty Cash</div>
+        <div class="label" data-i18n="lbl_petty">&#128188; Petty Cash</div>
         <div class="amount" id="balPetty">AED 0.00</div>
-        <div class="trend">tap to view ledger</div>
+        <div class="trend" data-i18n="tap_ledger">tap to view ledger</div>
       </div>
     </div>
     <div class="stats-row">
-      <div class="stat-item"><div class="value income-text" id="mIncome">AED 0</div><div class="label">Income this month</div></div>
-      <div class="stat-item"><div class="value expense-text" id="mExpense">AED 0</div><div class="label">Expense this month</div></div>
-      <div class="stat-item"><div class="value" id="mNet">AED 0</div><div class="label">Net P&amp;L</div></div>
+      <div class="stat-item"><div class="value income-text" id="mIncome">AED 0</div><div class="label" data-i18n="st_income">Income this month</div></div>
+      <div class="stat-item"><div class="value expense-text" id="mExpense">AED 0</div><div class="label" data-i18n="st_expense">Expense this month</div></div>
+      <div class="stat-item"><div class="value" id="mNet">AED 0</div><div class="label" data-i18n="st_net">Net P&amp;L</div></div>
     </div>
     <div class="card">
       <div class="card-title">&#9889; Quick Actions</div>
       <div class="action-bar">
-        <button class="btn btn-primary" onclick="openTx('Expense','Bank')">− Expense</button>
-        <button class="btn btn-success" onclick="openTx('Income','Bank')">＋ Income</button>
-        <button class="btn btn-ghost" onclick="openTransfer()">&#8644; Transfer</button>
-        <button class="btn btn-ghost" onclick="showSection('reports')">&#128202; Reports</button>
+        <button class="btn btn-primary" onclick="openTx('Expense','Bank')" data-i18n="qa_expense">− Expense</button>
+        <button class="btn btn-success" onclick="openTx('Income','Bank')" data-i18n="qa_income">＋ Income</button>
+        <button class="btn btn-ghost" onclick="openTransfer()" data-i18n="qa_transfer">&#8644; Transfer</button>
+        <button class="btn btn-ghost" onclick="showSection('reports')" data-i18n="qa_reports">&#128202; Reports</button>
       </div>
     </div>
     <div class="card">
-      <div class="card-title">&#9202; Recent Activity <span style="text-transform:none;cursor:pointer" onclick="showSection('ledger')">View all →</span></div>
-      <div class="table-wrap"><table><thead><tr><th>Date</th><th>Ref</th><th>Description</th><th>Type</th><th class="num">Amount</th></tr></thead><tbody id="recentBody"></tbody></table></div>
+      <div class="card-title"><span data-i18n="sec_recent">&#9202; Recent Activity</span> <span style="text-transform:none;cursor:pointer" onclick="showSection('ledger')" data-i18n="view_all">View all →</span></div>
+      <div class="table-wrap"><table><thead><tr><th data-i18n="l_date">Date</th><th data-i18n="l_ref">Ref</th><th data-i18n="l_desc">Description</th><th data-i18n="d_type">Type</th><th class="num" data-i18n="l_amount">Amount</th></tr></thead><tbody id="recentBody"></tbody></table></div>
     </div>
   </section>
   <section id="sec-ledger" class="section">
     <div class="card">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-        <div class="card-title" style="margin:0;">&#128190; Ledger</div>
-        <button class="btn btn-primary" onclick="openTypeSheet()">＋ Add</button>
+        <div class="card-title" style="margin:0;" data-i18n="sec_ledger">&#128190; Ledger</div>
+        <button class="btn btn-primary" onclick="openTypeSheet()" data-i18n="add">＋ Add</button>
       </div>
-      <input class="search-box" id="fSearch" placeholder="Search description, ref no, category, notes…" oninput="onSearch(this.value)">
+      <input class="search-box" id="fSearch" data-i18n-ph="ph_search" placeholder="Search description, ref no, category, notes…" oninput="onSearch(this.value)">
       <div class="filter-row">
         <input type="date" id="fFrom" onchange="onDateFilter()">
         <input type="date" id="fTo" onchange="onDateFilter()">
-        <button class="btn btn-ghost" style="padding:8px 12px" onclick="clearFilters()">Clear</button>
+        <button class="btn btn-ghost" style="padding:8px 12px" onclick="clearFilters()" data-i18n="clear">Clear</button>
       </div>
       <div class="chip-row" id="accChips"></div>
       <div class="chip-row" id="typeChips"></div>
       <div class="table-wrap"><table>
-        <thead><tr><th>Date</th><th>Ref</th><th>Description</th><th>Acct</th><th>Type</th><th class="num">Amount</th><th class="num">Balance</th></tr></thead>
+        <thead><tr><th data-i18n="l_date">Date</th><th data-i18n="l_ref">Ref</th><th data-i18n="l_desc">Description</th><th>Acct</th><th data-i18n="d_type">Type</th><th class="num" data-i18n="l_amount">Amount</th><th class="num">Balance</th></tr></thead>
         <tbody id="ledgerBody"></tbody>
       </table></div>
+    </div>
+  </section>
+  <section id="sec-parties" class="section">
+    <div class="card">
+      <div class="card-title" data-i18n="p_title">&#129309; Parties — Udhaar &amp; Baaki (Jama / Kharch)</div>
+      <div class="form-row">
+        <input id="pName" data-i18n-ph="p_name" placeholder="Name *">
+        <select id="pType"><option value="Customer" data-i18n="p_customer">Customer</option><option value="Supplier" data-i18n="p_supplier">Supplier</option></select>
+      </div>
+      <div class="form-row" style="margin-top:10px;">
+        <input id="pPhone" data-i18n-ph="p_phone" placeholder="Phone (optional)">
+        <button class="btn btn-primary" onclick="addParty()" data-i18n="p_add">＋ Add Party</button>
+      </div>
+      <div id="partyList" style="margin-top:14px;"></div>
     </div>
   </section>
   <section id="sec-reports" class="section">
     <div class="card">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:8px;">
-        <div class="card-title" style="margin:0;">&#128200; Monthly Report</div>
+        <div class="card-title" style="margin:0;" data-i18n="sec_reports">&#128200; Monthly Report</div>
         <input type="month" id="repMonth" onchange="renderReports()">
       </div>
       <div class="stats-row four">
-        <div class="stat-item"><div class="value income-text" id="rIncome">0</div><div class="label">Income</div></div>
-        <div class="stat-item"><div class="value expense-text" id="rExpense">0</div><div class="label">Expense</div></div>
-        <div class="stat-item"><div class="value" id="rNet">0</div><div class="label">Net P&amp;L</div></div>
-        <div class="stat-item"><div class="value vat-text" id="rVat">0</div><div class="label">VAT 5%</div></div>
+        <div class="stat-item"><div class="value income-text" id="rIncome">0</div><div class="label" data-i18n="r_income">Income</div></div>
+        <div class="stat-item"><div class="value expense-text" id="rExpense">0</div><div class="label" data-i18n="r_expense">Expense</div></div>
+        <div class="stat-item"><div class="value" id="rNet">0</div><div class="label" data-i18n="r_net">Net P&amp;L</div></div>
+        <div class="stat-item"><div class="value vat-text" id="rVat">0</div><div class="label" data-i18n="r_vat">VAT 5%</div></div>
       </div>
-      <div class="card-title" style="margin-top:6px;">Expenses by category</div>
+      <div class="card-title" style="margin-top:6px;" data-i18n="exp_by_cat">Expenses by category</div>
       <div id="expBars"></div>
-      <div class="card-title" style="margin-top:14px;">Income by category</div>
+      <div class="card-title" style="margin-top:14px;" data-i18n="inc_by_cat">Income by category</div>
       <div id="incBars"></div>
-      <p class="muted-sm" style="margin-top:12px;">VAT total = 5% of every entry flagged with the TRN badge, for the selected month. Transfers never count as income or expense.</p>
       <div class="action-bar" style="margin-top:12px;">
-        <button class="btn btn-primary" onclick="exportCSV('month')">&#11015; CSV (this month)</button>
-        <button class="btn btn-ghost" onclick="exportCSV('all')">&#11015; CSV (all data)</button>
+        <button class="btn btn-primary" onclick="exportCSV('month')" data-i18n="csv_month">&#11015; CSV (this month)</button>
+        <button class="btn btn-ghost" onclick="exportCSV('all')" data-i18n="csv_all">&#11015; CSV (all data)</button>
       </div>
     </div>
   </section>
   <section id="sec-settings" class="section">
     <div class="card">
       <div class="card-title">&#127912; Appearance</div>
-      <div class="form-group" style="margin:0;">
-        <select id="themeSelect" onchange="setTheme(this.value)">
-          <option value="auto">Auto (follow device)</option>
-          <option value="light">Light</option>
-          <option value="dark">Dark</option>
-        </select>
+      <div class="form-row">
+        <div class="form-group" style="margin:0;">
+          <label data-i18n="set_theme">Theme</label>
+          <select id="themeSelect" onchange="setTheme(this.value)">
+            <option value="auto" data-i18n="th_auto">Auto (follow device)</option>
+            <option value="light" data-i18n="th_light">Light</option>
+            <option value="dark" data-i18n="th_dark">Dark</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin:0;">
+          <label data-i18n="set_lang">Language / زبان / भाषा</label>
+          <select id="langSelect" onchange="setLang(this.value)">
+            <option value="en">English</option>
+            <option value="ar">العربية</option>
+            <option value="ur">اردو</option>
+            <option value="hi">हिन्दी</option>
+          </select>
+        </div>
       </div>
     </div>
     <div class="card">
-      <div class="card-title">&#128204; Categories — Category → Sub-category → Item</div>
+      <div class="card-title" data-i18n="b_title">&#128218; Books — Sites / Vehicles / Remittance</div>
+      <p class="muted-sm" data-i18n="b_hint">Separate books for each site, vehicle, or personal remittance account. Switch instantly from the Home screen.</p>
       <div class="form-row">
-        <select id="catType"><option value="Expense">Expense</option><option value="Income">Income</option></select>
-        <input id="catName" placeholder="Category * (e.g. Fuel)">
+        <input id="bookName" data-i18n-ph="b_name" placeholder="Book name (site / vehicle / remittance)…">
+        <button class="btn btn-primary" onclick="addBook()" data-i18n="b_add">＋ Add</button>
+      </div>
+      <div id="bookList" style="margin-top:12px;"></div>
+    </div>
+    <div class="card">
+      <div class="card-title" data-i18n="v_title">&#128241; This Device</div>
+      <div class="form-group" style="margin:0;">
+        <input id="deviceName" onchange="saveDeviceName(this.value)">
+      </div>
+      <p class="muted-sm" data-i18n="v_hint">This name is stamped as createdByDevice on every transaction — clearly tracking multi-phone or multi-staff entries.</p>
+    </div>
+    <div class="card">
+      <div class="card-title" data-i18n="sec_cats">&#128204; Categories — Category → Sub-category → Item</div>
+      <div class="form-row">
+        <select id="catType"><option value="Expense" data-i18n="t_Expense">Expense</option><option value="Income" data-i18n="t_Income">Income</option></select>
+        <input id="catName" data-i18n-ph="cat_name" placeholder="Category * (e.g. Fuel)">
       </div>
       <div class="form-row" style="margin-top:10px;">
-        <input id="catSub" placeholder="Sub-category (optional)">
-        <input id="catItem" placeholder="Item (optional)">
+        <input id="catSub" data-i18n-ph="cat_sub" placeholder="Sub-category (optional)">
+        <input id="catItem" data-i18n-ph="cat_item" placeholder="Item (optional)">
       </div>
-      <button class="btn btn-primary" style="margin-top:12px;" onclick="addCategory()">＋ Add Category</button>
+      <button class="btn btn-primary" style="margin-top:12px;" onclick="addCategory()" data-i18n="add_cat">＋ Add Category</button>
       <div id="catList" style="margin-top:16px;max-height:340px;overflow-y:auto;"></div>
     </div>
     <div class="card">
-      <div class="card-title">&#128190; Backup &amp; Data</div>
-      <p class="muted-sm">Last backup: <b id="lastBackup">never</b> &nbsp;·&nbsp; Storage used: <b id="storageUsed">—</b></p>
+      <div class="card-title" data-i18n="sec_backup">&#128190; Backup &amp; Data</div>
+      <p class="muted-sm"><span data-i18n="last_backup">Last backup</span>: <b id="lastBackup">never</b> &nbsp;·&nbsp; Storage: <b id="storageUsed">—</b></p>
       <div class="action-bar" style="margin-top:12px;">
-        <button class="btn btn-success" onclick="exportJSON()">&#11015; Export JSON backup</button>
-        <button class="btn btn-ghost" onclick="document.getElementById('importFile').click()">&#11014; Import / restore</button>
-        <button class="btn btn-ghost" onclick="exportCSV('all')">&#11015; CSV for accountant</button>
+        <button class="btn btn-success" onclick="exportJSON()" data-i18n="exp_json">&#11015; Export JSON backup</button>
+        <button class="btn btn-ghost" onclick="document.getElementById('importFile').click()" data-i18n="imp_restore">&#11014; Import / restore</button>
+        <button class="btn btn-ghost" onclick="exportCSV('all')" data-i18n="csv_acct">&#11015; CSV for accountant</button>
       </div>
       <input type="file" id="importFile" accept=".json,application/json" style="display:none" onchange="importJSON(this)">
       <div class="filter-row" style="margin-top:10px;">
@@ -253,29 +310,31 @@ tbody tr:hover td { background:var(--surface2); }
           <option value="Bank">CSV target: Bank</option>
           <option value="PettyCash">CSV target: Petty Cash</option>
         </select>
-        <button class="btn btn-ghost" onclick="document.getElementById('csvFile').click()">&#11014; Import CSV (Google Sheet export)</button>
+        <button class="btn btn-ghost" onclick="document.getElementById('csvFile').click()" data-i18n="imp_csv">&#11014; Import CSV (Google Sheet export)</button>
       </div>
       <input type="file" id="csvFile" accept=".csv,text/csv" style="display:none" onchange="importCSV(this)">
       <hr style="border:none;border-top:1px solid var(--border);margin:16px 0;">
-      <button class="btn btn-danger" onclick="wipeData()">&#128465; Erase all data</button>
+      <button class="btn btn-danger" onclick="wipeData()" data-i18n="erase">&#128465; Erase all data</button>
     </div>
-    <div class="footer-note">AVA Finance v4 — one file, every device, your data stays yours.<br>Data lives in this browser (IndexedDB) and only leaves when you export a backup.</div>
+    <div class="footer-note">AVA Finance v5 — one file, every device, your data stays yours.</div>
   </section>
 </main>
 <nav class="bottom-nav">
-  <button class="nav-item active" data-sec="home"><span class="icon">&#127968;</span><span>Home</span></button>
-  <button class="nav-item" data-sec="ledger"><span class="icon">&#128190;</span><span>Ledger</span></button>
-  <button class="nav-item" data-sec="reports"><span class="icon">&#128200;</span><span>Reports</span></button>
-  <button class="nav-item" data-sec="settings"><span class="icon">&#9881;</span><span>Settings</span></button>
+  <button class="nav-item active" data-sec="home"><span class="icon">&#127968;</span><span data-i18n="nav_home">Home</span></button>
+  <button class="nav-item" data-sec="ledger"><span class="icon">&#128190;</span><span data-i18n="nav_ledger">Ledger</span></button>
+  <button class="nav-item" data-sec="parties"><span class="icon">&#129309;</span><span data-i18n="nav_parties">Parties</span></button>
+  <button class="nav-item" data-sec="reports"><span class="icon">&#128200;</span><span data-i18n="nav_reports">Reports</span></button>
+  <button class="nav-item" data-sec="settings"><span class="icon">&#9881;</span><span data-i18n="nav_settings">Settings</span></button>
 </nav>
 <button class="fab" onclick="openTypeSheet()" title="Add entry">＋</button>
 <div class="sheet-overlay" id="typeSheet" onclick="if(event.target===this)closeSheet('typeSheet')">
   <div class="sheet sheet-sm">
-    <div class="sheet-header"><h2>New Entry</h2><button class="close" onclick="closeSheet('typeSheet')">&times;</button></div>
+    <div class="sheet-header"><h2 data-i18n="fab_new">New Entry</h2><button class="close" onclick="closeSheet('typeSheet')">&times;</button></div>
     <div class="type-grid">
-      <button class="type-btn expense" onclick="closeSheet('typeSheet');openTx('Expense','Bank')"><span class="t-ico">−</span><span>Expense<small>money out — fuel, tolls, salaries…</small></span></button>
-      <button class="type-btn income" onclick="closeSheet('typeSheet');openTx('Income','Bank')"><span class="t-ico">＋</span><span>Income<small>money in — client payments…</small></span></button>
-      <button class="type-btn transfer" onclick="closeSheet('typeSheet');openTransfer()"><span class="t-ico">&#8644;</span><span>Transfer<small>move money between accounts</small></span></button>
+      <button class="type-btn expense" onclick="closeSheet('typeSheet');openTx('Expense','Bank')"><span class="t-ico">−</span><span data-i18n="ts_expense">Expense (Kharch)</span></button>
+      <button class="type-btn income" onclick="closeSheet('typeSheet');openTx('Income','Bank')"><span class="t-ico">＋</span><span data-i18n="ts_income">Income (Jama)</span></button>
+      <button class="type-btn party" onclick="closeSheet('typeSheet');showSection('parties')"><span class="t-ico">&#129309;</span><span data-i18n="ts_party">Udhaar / Jama (party)</span></button>
+      <button class="type-btn transfer" onclick="closeSheet('typeSheet');openTransfer()"><span class="t-ico">&#8644;</span><span data-i18n="ts_transfer">Transfer between accounts</span></button>
     </div>
   </div>
 </div>
@@ -283,88 +342,119 @@ tbody tr:hover td { background:var(--surface2); }
   <div class="sheet">
     <div class="sheet-header"><h2 id="txTitle">Add Expense</h2><button class="close" onclick="closeSheet('txSheet')">&times;</button></div>
     <div class="chip-row" id="txTypeChips">
-      <button class="chip" data-v="Expense" onclick="setTxType('Expense')">&#8722; Expense</button>
-      <button class="chip" data-v="Income" onclick="setTxType('Income')">＋ Income</button>
+      <button class="chip" data-v="Expense" onclick="setTxType('Expense')" data-i18n="t_Expense">Expense</button>
+      <button class="chip" data-v="Income" onclick="setTxType('Income')" data-i18n="t_Income">Income</button>
     </div>
-    <div class="chip-row" id="txAccountChips">
-      <button class="chip" data-v="Bank" onclick="setTxAccount('Bank')">&#127974; Bank</button>
-      <button class="chip" data-v="PettyCash" onclick="setTxAccount('PettyCash')">&#128188; Petty Cash</button>
+    <div class="chip-row" id="txAcctRow">
+      <button class="chip" data-v="Bank" onclick="setTxAccount('Bank')" data-i18n="c_bank">&#127974; Bank</button>
+      <button class="chip" data-v="PettyCash" onclick="setTxAccount('PettyCash')" data-i18n="c_petty">&#128188; Petty Cash</button>
+    </div>
+    <div class="form-group" id="partyWrap" style="display:none;">
+      <label data-i18n="l_party">Party — Udhaar / Jama (optional)</label>
+      <select id="txParty" onchange="onPartyPick()"></select>
+    </div>
+    <div class="form-group" id="creditWrap" style="display:none;">
+      <label class="switch" style="border-color:rgba(245,158,11,.5);"><input type="checkbox" id="txCredit" onchange="onCreditToggle()"><span data-i18n="credit_chk">On credit — Udhaar / Baaki (no cash moves)</span></label>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Date *</label><input type="date" id="txDate"></div>
-      <div class="form-group"><label>Amount (AED) *</label><input type="number" id="txAmount" step="0.01" min="0.01" placeholder="0.00"></div>
+      <div class="form-group"><label data-i18n="l_date">Date *</label><input type="date" id="txDate"></div>
+      <div class="form-group"><label data-i18n="l_amount">Amount (AED) *</label><input type="number" id="txAmount" step="0.01" min="0.01" placeholder="0.00"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Category *</label><select id="txCat" onchange="fillSubCats()"></select></div>
-      <div class="form-group"><label>Sub-category</label><select id="txSub" onchange="fillItems()"><option value="">—</option></select></div>
+      <div class="form-group"><label data-i18n="l_category">Category *</label><select id="txCat" onchange="fillSubCats()"></select></div>
+      <div class="form-group"><label data-i18n="l_sub">Sub-category</label><select id="txSub" onchange="fillItems()"><option value="">—</option></select></div>
     </div>
-    <div class="form-group"><label>Item</label><select id="txItem"><option value="">—</option></select></div>
+    <div class="form-group"><label data-i18n="l_item">Item</label><select id="txItem"><option value="">—</option></select></div>
     <div class="form-row">
-      <div class="form-group"><label>Cheque / Ref No.</label><input id="txRef" placeholder="e.g. CHQ-1024"></div>
-      <div class="form-group"><label>VAT (5%) — TRN</label><label class="switch"><input type="checkbox" id="txVat"><span>VAT applies</span></label></div>
+      <div class="form-group"><label data-i18n="l_ref">Cheque / Ref No.</label><input id="txRef" placeholder="e.g. CHQ-1024"></div>
+      <div class="form-group"><label data-i18n="l_vat">VAT (5%) — TRN</label><label class="switch"><input type="checkbox" id="txVat"><span data-i18n="vat_applies">VAT applies</span></label></div>
     </div>
-    <div class="form-group"><label>Description</label><input id="txDesc" placeholder="e.g. ADNOC fuel — Bus 12"></div>
+    <div class="form-group"><label data-i18n="l_desc">Description</label><input id="txDesc" placeholder="e.g. ADNOC fuel — Bus 12"></div>
     <div class="form-group">
-      <label>Receipt (photo, max 1.5 MB)</label>
-      <div class="upload-zone" onclick="document.getElementById('txReceipt').click()">&#128247; Tap to attach receipt</div>
+      <label data-i18n="l_receipt">Receipt (photo, max 1.5 MB)</label>
+      <div class="upload-zone" onclick="document.getElementById('txReceipt').click()">&#128247; <span data-i18n="l_receipt">Tap to attach receipt</span></div>
       <input type="file" id="txReceipt" accept="image/*,application/pdf" style="display:none" onchange="handleReceipt(this)">
       <img id="txReceiptPreview" class="receipt-preview" alt="Receipt">
-      <div id="txReceiptPdf" style="display:none;margin-top:8px;"><a id="txReceiptPdfLink" class="btn btn-ghost" target="_blank">&#128196; PDF attached — open</a></div>
+      <div id="txReceiptPdf" style="display:none;margin-top:8px;"><a id="txReceiptPdfLink" class="btn btn-ghost" target="_blank">&#128196; PDF</a></div>
     </div>
     <div class="action-bar" style="margin-top:6px;">
-      <button class="btn btn-ghost" onclick="closeSheet('txSheet')">Cancel</button>
-      <button class="btn btn-primary" id="txSaveBtn" onclick="saveTx()">Save</button>
+      <button class="btn btn-ghost" onclick="closeSheet('txSheet')" data-i18n="cancel">Cancel</button>
+      <button class="btn btn-primary" id="txSaveBtn" onclick="saveTx()" data-i18n="save">Save</button>
     </div>
   </div>
 </div>
 <div class="sheet-overlay" id="trSheet" onclick="if(event.target===this)closeSheet('trSheet')">
   <div class="sheet sheet-sm">
-    <div class="sheet-header"><h2 id="trTitle">Transfer Funds</h2><button class="close" onclick="closeSheet('trSheet')">&times;</button></div>
+    <div class="sheet-header"><h2 id="trTitle" data-i18n="tr_title">Transfer Funds</h2><button class="close" onclick="closeSheet('trSheet')">&times;</button></div>
     <p class="muted-sm" style="margin-bottom:12px;">Transfers move money between accounts. Both balances update — income and expense are untouched.</p>
-    <div class="form-group"><label>From *</label><select id="trFrom"><option value="Bank">&#127974; Bank Account</option><option value="PettyCash">&#128188; Petty Cash</option></select></div>
+    <div class="form-group"><label data-i18n="tr_from">From *</label><select id="trFrom"><option value="Bank" data-i18n="c_bank">&#127974; Bank Account</option><option value="PettyCash" data-i18n="c_petty">&#128188; Petty Cash</option></select></div>
     <div style="text-align:center;color:var(--muted);font-size:20px;margin:2px 0;">&#8595;</div>
-    <div class="form-group"><label>To *</label><select id="trTo"><option value="PettyCash">&#128188; Petty Cash</option><option value="Bank">&#127974; Bank Account</option></select></div>
+    <div class="form-group"><label data-i18n="tr_to">To *</label><select id="trTo"><option value="PettyCash" data-i18n="c_petty">&#128188; Petty Cash</option><option value="Bank" data-i18n="c_bank">&#127974; Bank Account</option></select></div>
     <div class="form-row">
-      <div class="form-group"><label>Date *</label><input type="date" id="trDate"></div>
-      <div class="form-group"><label>Amount (AED) *</label><input type="number" id="trAmount" step="0.01" min="0.01" placeholder="0.00"></div>
+      <div class="form-group"><label data-i18n="l_date">Date *</label><input type="date" id="trDate"></div>
+      <div class="form-group"><label data-i18n="l_amount">Amount (AED) *</label><input type="number" id="trAmount" step="0.01" min="0.01" placeholder="0.00"></div>
     </div>
-    <div class="form-group"><label>Cheque / Ref No.</label><input id="trRef" placeholder="e.g. CHQ-2044"></div>
-    <div class="form-group"><label>Notes</label><input id="trDesc" placeholder="Optional note"></div>
+    <div class="form-group"><label data-i18n="l_ref">Cheque / Ref No.</label><input id="trRef"></div>
+    <div class="form-group"><label data-i18n="tr_note">Notes</label><input id="trDesc"></div>
     <div class="action-bar" style="margin-top:6px;">
-      <button class="btn btn-ghost" onclick="closeSheet('trSheet')">Cancel</button>
-      <button class="btn btn-primary" id="trSaveBtn" onclick="saveTransfer()">Save Transfer</button>
+      <button class="btn btn-ghost" onclick="closeSheet('trSheet')" data-i18n="cancel">Cancel</button>
+      <button class="btn btn-primary" id="trSaveBtn" onclick="saveTransfer()" data-i18n="tr_save">Save Transfer</button>
     </div>
   </div>
 </div>
 <div class="sheet-overlay" id="detailSheet" onclick="if(event.target===this)closeSheet('detailSheet')">
   <div class="sheet">
-    <div class="sheet-header"><h2>Transaction</h2><button class="close" onclick="closeSheet('detailSheet')">&times;</button></div>
+    <div class="sheet-header"><h2 data-i18n="d_title">Transaction</h2><button class="close" onclick="closeSheet('detailSheet')">&times;</button></div>
     <div id="detailBody"></div>
     <div class="action-bar" style="margin-top:16px;">
-      <button class="btn btn-danger" onclick="deleteFromDetail()">&#128465; Delete</button>
-      <button class="btn btn-ghost" onclick="closeSheet('detailSheet')">Close</button>
-      <button class="btn btn-primary" onclick="editFromDetail()">&#9998; Edit</button>
+      <button class="btn btn-danger" onclick="deleteFromDetail()" data-i18n="del">&#128465; Delete</button>
+      <button class="btn btn-ghost" onclick="closeSheet('detailSheet')" data-i18n="close">Close</button>
+      <button class="btn btn-primary" onclick="editFromDetail()" data-i18n="edit">&#9998; Edit</button>
     </div>
+  </div>
+</div>
+<div class="sheet-overlay" id="partySheet" onclick="if(event.target===this)closeSheet('partySheet')">
+  <div class="sheet">
+    <div class="sheet-header"><h2 id="psTitle">Party</h2><button class="close" onclick="closeSheet('partySheet')">&times;</button></div>
+    <div id="partyBody"></div>
   </div>
 </div>
 <div class="toast" id="toast"></div>
 <script>
 "use strict";
 const $ = id => document.getElementById(id);
-const CURRENCY = "AED";
-const RECEIPT_MAX_BYTES = 1.5 * 1024 * 1024;
+/* ═══ i18n ═══ */
+const I18N = {
+en: { nav_home:"Home", nav_ledger:"Ledger", nav_parties:"Parties", nav_reports:"Reports", nav_settings:"Settings", lbl_bank:"🏦 Bank Account", lbl_petty:"💼 Petty Cash", tap_ledger:"tap to view ledger", st_income:"Income this month", st_expense:"Expense this month", st_net:"Net P&L", qa_expense:"− Expense", qa_income:"＋ Income", qa_transfer:"⇄ Transfer", qa_reports:"📊 Reports", sec_recent:"🕒 Recent Activity", view_all:"View all →", sec_ledger:"📒 Ledger", add:"＋ Add", ph_search:"Search description, ref no, category, notes…", clear:"Clear", all_accounts:"All accounts", c_bank:"🏦 Bank", c_petty:"💼 Petty Cash", t_Income:"Income", t_Expense:"Expense", t_Transfer:"Transfer", sec_reports:"📈 Monthly Report", r_income:"Income", r_expense:"Expense", r_net:"Net P&L", r_vat:"VAT 5%", exp_by_cat:"Expenses by category", inc_by_cat:"Income by category", csv_month:"⬇ CSV (this month)", csv_all:"⬇ CSV (all data)", set_theme:"Theme", th_auto:"Auto (follow device)", th_light:"Light", th_dark:"Dark", set_lang:"Language", sec_cats:"🗂 Categories — Category → Sub-category → Item", cat_name:"Category * (e.g. Fuel)", cat_sub:"Sub-category (optional)", cat_item:"Item (optional)", add_cat:"＋ Add Category", sec_backup:"💾 Backup & Data", last_backup:"Last backup", exp_json:"⬇ Export JSON backup", imp_restore:"⬆ Import / restore", csv_acct:"⬇ CSV for accountant", imp_csv:"⬆ Import CSV (Google Sheet export)", erase:"🗑 Erase all data", l_date:"Date", l_amount:"Amount (AED)", l_category:"Category", l_sub:"Sub-category", l_item:"Item", l_ref:"Cheque / Ref No.", l_vat:"VAT (5%) — TRN", vat_applies:"VAT applies", l_desc:"Description", l_receipt:"Receipt (photo, max 1.5 MB)", save:"Save", cancel:"Cancel", edit:"✏️ Edit", del:"🗑 Delete", close:"Close", tr_title:"Transfer Funds", tr_from:"From", tr_to:"To", tr_note:"Notes", tr_save:"Save Transfer", tx_add_expense:"Add Expense", tx_add_income:"Add Income", tx_edit:"Edit Transaction", d_title:"Transaction", d_type:"Type", d_account:"Account", d_date:"Date", d_amount:"Amount", d_category:"Category", d_ref:"Cheque / Ref", d_desc:"Description", d_created:"Created", d_updated:"Updated", d_party:"Party", d_credit:"On credit (Udhaar / Baaki — no cash moved)", d_cash:"Cash", d_device:"Device", p_title:"🤝 Parties — Udhaar & Baaki (Jama / Kharch)", p_add:"＋ Add Party", p_name:"Name *", p_customer:"Customer", p_supplier:"Supplier", p_phone:"Phone (optional)", p_none:"No parties yet — add your first customer or supplier.", p_they_owe:"owes you", p_you_owe:"you owe", p_balanced:"settled", p_ledger:"Party ledger", p_credit_given:"＋ Credit Given (Udhaar diya)", p_jama_cash:"＋ Cash Received (Jama)", p_udhaar_taken:"＋ Udhaar Taken (Baaki)", p_cash_paid:"＋ Cash Paid (Kharch)", l_party:"Party — Udhaar / Jama (optional)", credit_chk:"On credit — Udhaar / Baaki (no cash moves)", fab_new:"New Entry", ts_expense:"Expense (Kharch)", ts_income:"Income (Jama)", ts_transfer:"Transfer between accounts", ts_party:"Udhaar / Jama (party)", b_title:"📚 Books — Sites / Vehicles / Remittance", b_name:"Book name (site / vehicle / remittance)…", b_add:"＋ Add", b_hint:"Separate books for each site, vehicle, or personal remittance account. Switch instantly from the Home screen.", b_main:"Main Book", b_del:"Delete", v_title:"📱 This Device", v_hint:"This name is stamped as createdByDevice on every transaction — clearly tracking multi-phone or multi-staff entries.", empty_ledger:"Nothing matches these filters.", empty_tx:"No transactions yet — tap ＋ to add your first entry." },
+ar: { nav_home:"الرئيسية", nav_ledger:"السجل", nav_parties:"الأطراف", nav_reports:"التقارير", nav_settings:"الإعدادات", lbl_bank:"🏦 الحساب البنكي", lbl_petty:"💼 النقدية الصغيرة", tap_ledger:"اضغط لعرض السجل", st_income:"دخل هذا الشهر", st_expense:"مصروف هذا الشهر", st_net:"صافي الربح", qa_expense:"− مصروف", qa_income:"＋ دخل", qa_transfer:"⇄ تحويل", qa_reports:"📊 تقارير", sec_recent:"🕒 آخر النشاطات", view_all:"عرض الكل ←", sec_ledger:"📒 السجل", add:"＋ إضافة", ph_search:"ابحث في الوصف، المرجع، الفئة…", clear:"مسح", all_accounts:"كل الحسابات", c_bank:"🏦 البنك", c_petty:"💼 النقدية", t_Income:"دخل", t_Expense:"مصروف", t_Transfer:"تحويل", sec_reports:"📈 التقرير الشهري", r_income:"دخل", r_expense:"مصروف", r_net:"صافي", r_vat:"ض.ق.م ٥٪", exp_by_cat:"المصروف حسب الفئة", inc_by_cat:"الدخل حسب الفئة", csv_month:"⬇ CSV (هذا الشهر)", csv_all:"⬇ CSV (الكل)", set_theme:"المظهر", th_auto:"تلقائي (حسب الجهاز)", th_light:"فاتح", th_dark:"داكن", set_lang:"اللغة", sec_cats:"🗂 الفئات — فئة ← فئة فرعية ← صنف", cat_name:"الفئة * (مثل: وقود)", cat_sub:"فئة فرعية (اختياري)", cat_item:"صنف (اختياري)", add_cat:"＋ إضافة فئة", sec_backup:"💾 النسخ الاحتياطي والبيانات", last_backup:"آخر نسخة", exp_json:"⬇ تصدير نسخة JSON", imp_restore:"⬆ استيراد / استعادة", csv_acct:"⬇ CSV للمحاسب", imp_csv:"⬆ استيراد CSV", erase:"🗑 مسح كل البيانات", l_date:"التاريخ", l_amount:"المبلغ (درهم)", l_category:"الفئة", l_sub:"فئة فرعية", l_item:"صنف", l_ref:"شيك / رقم مرجعي", l_vat:"ضريبة القيمة المضافة ٥٪ — الرقم الضريبي", vat_applies:"الضريبة تنطبق", l_desc:"الوصف", l_receipt:"إيصال (صورة، بحد أقصى ١.٥ ميجا)", save:"حفظ", cancel:"إلغاء", edit:"✏️ تعديل", del:"🗑 حذف", close:"إغلاق", tr_title:"تحويل الأموال", tr_from:"من", tr_to:"إلى", tr_note:"ملاحظات", tr_save:"حفظ التحويل", tx_add_expense:"إضافة مصروف", tx_add_income:"إضافة دخل", tx_edit:"تعديل المعاملة", d_title:"المعاملة", d_type:"النوع", d_account:"الحساب", d_date:"التاريخ", d_amount:"المبلغ", d_category:"الفئة", d_ref:"شيك / مرجع", d_desc:"الوصف", d_created:"أُنشئت", d_updated:"حُدّثت", d_party:"الطرف", d_credit:"بالأجل — دَين (لا يتحرك نقد)", d_cash:"نقد", d_device:"الجهاز", p_title:"🤝 الأطراف — دَين وباقي (جمع / خرچ)", p_add:"＋ إضافة طرف", p_name:"الاسم *", p_customer:"عميل", p_supplier:"مورّد", p_phone:"هاتف (اختياري)", p_none:"لا أطراف بعد — أضف أول عميل أو مورّد.", p_they_owe:"مدين لك", p_you_owe:"أنت مدين له", p_balanced:"مُسوّى", p_ledger:"سجل الطرف", p_credit_given:"＋ أُعطي بالأجل (أُدخِر)", p_jama_cash:"＋ نقد مستلم (جمع)", p_udhaar_taken:"＋ أُخذ بالأجل (باقي)", p_cash_paid:"＋ نقد مدفوع (خرچ)", l_party:"الطرف — دَين / جمع (اختياري)", credit_chk:"بالأجل — دَين / باقي (لا يتحرك نقد)", fab_new:"إدخال جديد", ts_expense:"مصروف (خرچ)", ts_income:"دخل (جمع)", ts_transfer:"تحويل بين الحسابات", ts_party:"دَين / جمع (طرف)", b_title:"📚 الدفاتر — مواقع / مركبات / تحويلات", b_name:"اسم الدفتر (موقع / مركبة / تحويلات)…", b_add:"＋ إضافة", b_hint:"دفاتر منفصلة لكل موقع أو مركبة أو حساب تحويلات شخصي. بدّل فورًا من الشاشة الرئيسية.", b_main:"الدفتر الرئيسي", b_del:"حذف", v_title:"📱 هذا الجهاز", v_hint:"يُختم هذا الاسم على كل معاملة (الجهاز المُنشئ) لتتبع إدخالات عدة هواتف أو موظفين بوضوح.", empty_ledger:"لا شيء يطابق هذه الفلاتر.", empty_tx:"لا معاملات بعد — اضغط ＋ لإضافة أول إدخال." },
+ur: { nav_home:"ہوم", nav_ledger:"لیجر", nav_parties:"فریق", nav_reports:"رپورٹس", nav_settings:"ترتیبات", lbl_bank:"🏦 بینک اکاؤنٹ", lbl_petty:"💼 پیٹی کیش", tap_ledger:"لیجر دیکھنے کے لیے ٹیپ کریں", st_income:"اس ماہ کی آمدنی", st_expense:"اس ماہ کا خرچ", st_net:"خالص منافع", qa_expense:"− خرچ", qa_income:"＋ آمدنی", qa_transfer:"⇄ منتقلی", qa_reports:"📊 رپورٹس", sec_recent:"🕒 حالیہ سرگرمی", view_all:"سب دیکھیں ←", sec_ledger:"📒 لیجر", add:"＋ اندراج", ph_search:"تفصیل، حوالہ، کیٹیگری میں تلاش…", clear:"صاف کریں", all_accounts:"تمام اکاؤنٹس", c_bank:"🏦 بینک", c_petty:"💼 پیٹی", t_Income:"آمدنی", t_Expense:"خرچ", t_Transfer:"منتقلی", sec_reports:"📈 ماہانہ رپورٹ", r_income:"آمدنی", r_expense:"خرچ", r_net:"خالص", r_vat:"وی اے ٹی 5٪", exp_by_cat:"کیٹیگری کے حساب سے خرچ", inc_by_cat:"کیٹیگری کے حساب سے آمدنی", csv_month:"⬇ CSV (اس ماہ)", csv_all:"⬇ CSV (تمام)", set_theme:"تھیم", th_auto:"آٹو (ڈیوائس کے مطابق)", th_light:"لائٹ", th_dark:"ڈارک", set_lang:"زبان", sec_cats:"🗂 کیٹیگریز — کیٹیگری ← سب کیٹیگری ← آئٹم", cat_name:"کیٹیگری * (مثلاً: فیول)", cat_sub:"سب کیٹیگری (اختیاری)", cat_item:"آئٹم (اختیاری)", add_cat:"＋ کیٹیگری شامل کریں", sec_backup:"💾 بیک اپ اور ڈیٹا", last_backup:"آخری بیک اپ", exp_json:"⬇ JSON بیک اپ ایکسپورٹ", imp_restore:"⬆ امپورٹ / بحالی", csv_acct:"⬇ اکاؤنٹنٹ کے لیے CSV", imp_csv:"⬆ CSV امپورٹ", erase:"🗑 تمام ڈیٹا مٹائیں", l_date:"تاریخ", l_amount:"رقم (درہم)", l_category:"کیٹیگری", l_sub:"سب کیٹیگری", l_item:"آئٹم", l_ref:"چیک / حوالہ نمبر", l_vat:"وی اے ٹی 5٪ — ٹی آر این", vat_applies:"وی اے ٹی لاگو", l_desc:"تفصیل", l_receipt:"رسید (تصویر، زیادہ سے زیادہ 1.5 MB)", save:"محفوظ کریں", cancel:"منسوخ", edit:"✏️ ترمیم", del:"🗑 حذف", close:"بند کریں", tr_title:"رقم منتقل کریں", tr_from:"از", tr_to:"بہ", tr_note:"نوٹس", tr_save:"منتقلی محفوظ کریں", tx_add_expense:"خرچ شامل کریں", tx_add_income:"آمدنی شامل کریں", tx_edit:"لین دین میں ترمیم", d_title:"لین دین", d_type:"قسم", d_account:"اکاؤنٹ", d_date:"تاریخ", d_amount:"رقم", d_category:"کیٹیگری", d_ref:"چیک / حوالہ", d_desc:"تفصیل", d_created:"بنائی گئی", d_updated:"اپڈیٹ شدہ", d_party:"فریق", d_credit:"ادھار / باقی — نقد نہیں چلا", d_cash:"نقد", d_device:"ڈیوائس", p_title:"🤝 فریق — ادھار و باقی (جمع / خرچ)", p_add:"＋ فریق شامل کریں", p_name:"نام *", p_customer:"گاہک", p_supplier:"سپلائر", p_phone:"فون (اختیاری)", p_none:"ابھی کوئی فریق نہیں — پہلا گاہک یا سپلائر شامل کریں۔", p_they_owe:"آپ کا مقروض", p_you_owe:"آپ مقروض ہیں", p_balanced:"برابر", p_ledger:"فریق کا لیجر", p_credit_given:"＋ ادھار دیا", p_jama_cash:"＋ نقد وصول (جمع)", p_udhaar_taken:"＋ ادھار لیا (باقی)", p_cash_paid:"＋ نقد ادا (خرچ)", l_party:"فریق — ادھار / جمع (اختیاری)", credit_chk:"ادھار / باقی — نقد نہیں چلا", fab_new:"نیا اندراج", ts_expense:"خرچ (خرچہ)", ts_income:"آمدنی (جمع)", ts_transfer:"اکاؤنٹس کے درمیان منتقلی", ts_party:"ادھار / جمع (فریق)", b_title:"📚 کتابیں — سائٹس / گاڑیاں / رمیٹنس", b_name:"کتاب کا نام (سائٹ / گاڑی / رمیٹنس)…", b_add:"＋ شامل کریں", b_hint:"ہر سائٹ، گاڑی یا ذاتی رمیٹنس اکاؤنٹ کے لیے الگ کتاب۔ ہوم اسکرین سے فوراً تبدیل کریں۔", b_main:"مرکزی کتاب", b_del:"حذف", v_title:"📱 یہ ڈیوائس", v_hint:"یہ نام ہر لین دین پر createdByDevice کے طور پر لگتا ہے — کئی فونوں یا اسٹاف کے اندراجات صاف نظر آتے ہیں۔", empty_ledger:"کوئی اندراج نہیں ملتا۔", empty_tx:"ابھی کوئی لین دین نہیں — ＋ دبا کر پہلا اندراج کریں۔" },
+hi: { nav_home:"होम", nav_ledger:"खाता", nav_parties:"पार्टियाँ", nav_reports:"रिपोर्ट", nav_settings:"सेटिंग", lbl_bank:"🏦 बैंक खाता", lbl_petty:"💼 पेटी कैश", tap_ledger:"खाता देखने के लिए टैप करें", st_income:"इस महीने की आय", st_expense:"इस महीने का खर्च", st_net:"शुद्ध लाभ", qa_expense:"− खर्च", qa_income:"＋ आय", qa_transfer:"⇄ ट्रांसफर", qa_reports:"📊 रिपोर्ट", sec_recent:"🕒 हाल की गतिविधि", view_all:"सभी देखें ←", sec_ledger:"📒 खाता (लेजर)", add:"＋ जोड़ें", ph_search:"विवरण, संदर्भ, श्रेणी में खोजें…", clear:"साफ़ करें", all_accounts:"सभी खाते", c_bank:"🏦 बैंक", c_petty:"💼 पेटी", t_Income:"आय", t_Expense:"खर्च", t_Transfer:"ट्रांसफर", sec_reports:"📈 मासिक रिपोर्ट", r_income:"आय", r_expense:"खर्च", r_net:"शुद्ध", r_vat:"वैट 5%", exp_by_cat:"श्रेणी के अनुसार खर्च", inc_by_cat:"श्रेणी के अनुसार आय", csv_month:"⬇ CSV (इस महीने)", csv_all:"⬇ CSV (सभी)", set_theme:"थीम", th_auto:"ऑटो (डिवाइस अनुसार)", th_light:"लाइट", th_dark:"डार्क", set_lang:"भाषा", sec_cats:"🗂 श्रेणियाँ — श्रेणी ← उप-श्रेणी ← आइटम", cat_name:"श्रेणी * (जैसे: ईंधन)", cat_sub:"उप-श्रेणी (वैकल्पिक)", cat_item:"आइटम (वैकल्पिक)", add_cat:"＋ श्रेणी जोड़ें", sec_backup:"💾 बैकअप और डेटा", last_backup:"अंतिम बैकअप", exp_json:"⬇ JSON बैकअप निर्यात", imp_restore:"⬆ आयात / पुनर्स्थापना", csv_acct:"⬇ लेखाकार के लिए CSV", imp_csv:"⬆ CSV आयात", erase:"🗑 सारा डेटा मिटाएँ", l_date:"तारीख", l_amount:"राशि (दिरहाम)", l_category:"श्रेणी", l_sub:"उप-श्रेणी", l_item:"आइटम", l_ref:"चेक / संदर्भ संख्या", l_vat:"वैट 5% — TRN", vat_applies:"वैट लागू", l_desc:"विवरण", l_receipt:"रसीद (फोटो, अधिकतम 1.5 MB)", save:"सहेजें", cancel:"रद्द करें", edit:"✏️ संपादित", del:"🗑 हटाएँ", close:"बंद करें", tr_title:"राशि ट्रांसफर करें", tr_from:"से", tr_to:"को", tr_note:"नोट्स", tr_save:"ट्रांसफर सहेजें", tx_add_expense:"खर्च जोड़ें", tx_add_income:"आय जोड़ें", tx_edit:"लेन-देन संपादित करें", d_title:"लेन-देन", d_type:"प्रकार", d_account:"खाता", d_date:"तारीख", d_amount:"राशि", d_category:"श्रेणी", d_ref:"चेक / संदर्भ", d_desc:"विवरण", d_created:"बनाया गया", d_updated:"अपडेटेड", d_party:"पार्टी", d_credit:"उधार / बाकी — नकद नहीं चला", d_cash:"नकद", d_device:"डिवाइस", p_title:"🤝 पार्टियाँ — उधार और बाकी (जमा / खर्च)", p_add:"＋ पार्टी जोड़ें", p_name:"नाम *", p_customer:"ग्राहक", p_supplier:"सप्लायर", p_phone:"फ़ोन (वैकल्पिक)", p_none:"अभी कोई पार्टी नहीं — पहला ग्राहक या सप्लायर जोड़ें।", p_they_owe:"आपका देने वाला", p_you_owe:"आप देने वाले हैं", p_balanced:"बराबर", p_ledger:"पार्टी खाता", p_credit_given:"＋ उधार दिया", p_jama_cash:"＋ नकद प्राप्त (जमा)", p_udhaar_taken:"＋ उधार लिया (बाकी)", p_cash_paid:"＋ नकद भुगतान (खर्च)", l_party:"पार्टी — उधार / जमा (वैकल्पिक)", credit_chk:"उधार / बाकी — नकद नहीं चला", fab_new:"नई एंट्री", ts_expense:"खर्च", ts_income:"आय (जमा)", ts_transfer:"खातों के बीच ट्रांसफर", ts_party:"उधार / जमा (पार्टी)", b_title:"📚 बही-खाता — साइट / वाहन / रेमिटेंस", b_name:"बही का नाम (साइट / वाहन / रेमिटेंस)…", b_add:"＋ जोड़ें", b_hint:"हर साइट, वाहन या निजी रेमिटेंस खाते के लिए अलग बही। होम स्क्रीन से तुरंत बदलें।", b_main:"मुख्य बही", b_del:"हटाएँ", v_title:"📱 यह डिवाइस", v_hint:"यह नाम हर लेन-देन पर createdByDevice के रूप में लगता है — कई फ़ोनों या स्टाफ़ के एंट्री साफ़ दिखते हैं।", empty_ledger:"कोई एंट्री नहीं मिली।", empty_tx:"अभी कोई लेन-देन नहीं — ＋ दबाकर पहली एंट्री करें।" }
+};
+let LANG = localStorage.getItem("ava_lang") || "en";
+function T(k) { return (I18N[LANG] && I18N[LANG][k]) || I18N.en[k] || k; }
+function setLang(v) { LANG = v; localStorage.setItem("ava_lang", v); applyLang(); renderDashboard(); renderLedger(); renderReports(); renderParties(); renderBookChips(); }
+function applyLang() {
+  document.documentElement.lang = LANG;
+  document.documentElement.dir = (LANG === "ar" || LANG === "ur") ? "rtl" : "ltr";
+  document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = T(el.dataset.i18n); });
+  document.querySelectorAll("[data-i18n-ph]").forEach(el => { el.placeholder = T(el.dataset.i18nPh); });
+  if ($("langSelect")) $("langSelect").value = LANG;
+}
 
-/* ── IndexedDB layer ─────────────────────────────────────────── */
+/* ═══ Device identity ═══ */
+const DEVICE_ID = (() => { let v = localStorage.getItem("ava_device_id"); if (!v) { v = "dev_" + Math.random().toString(36).slice(2, 10); localStorage.setItem("ava_device_id", v); } return v; })();
+function deviceName() { return (localStorage.getItem("ava_device_name") || "Device-" + DEVICE_ID.slice(-4)).trim(); }
+function saveDeviceName(v) { localStorage.setItem("ava_device_name", (v || "").trim() || deviceName()); if ($("deviceName")) $("deviceName").value = deviceName(); toast(T("save") + " ✓", "success"); }
+
+/* ═══ IndexedDB ═══ */
 const DB = {
   db: null,
   open() {
     return new Promise((res, rej) => {
-      const req = indexedDB.open("ava_finance", 1);
+      const req = indexedDB.open("ava_finance", 2);
       req.onupgradeneeded = e => {
         const d = e.target.result;
-        if (!d.objectStoreNames.contains("transactions")) d.createObjectStore("transactions", { keyPath: "id" });
-        if (!d.objectStoreNames.contains("categories")) d.createObjectStore("categories", { keyPath: "path" });
-        if (!d.objectStoreNames.contains("meta")) d.createObjectStore("meta", { keyPath: "key" });
+        ["transactions", "categories", "meta", "parties", "books"].forEach(n => { if (!d.objectStoreNames.contains(n)) d.createObjectStore(n, { keyPath: n === "meta" ? "key" : "id" }); });
       };
       req.onsuccess = e => { DB.db = e.target.result; res(); };
       req.onerror = e => rej(e.target.error);
@@ -376,24 +466,17 @@ const DB = {
   del(name, key) { return new Promise((res, rej) => { const r = DB.store(name, "readwrite").delete(key); r.onsuccess = () => res(); r.onerror = () => rej(r.error); }); },
   clear(name) { return new Promise((res, rej) => { const r = DB.store(name, "readwrite").clear(); r.onsuccess = () => res(); r.onerror = () => rej(r.error); }); },
   getMeta(key) { return new Promise((res, rej) => { const r = DB.store("meta").get(key); r.onsuccess = () => res(r.result ? r.result.value : null); r.onerror = () => rej(r.error); }); },
-  bulkPut(name, arr) {
-    return new Promise((res, rej) => {
-      const tx = DB.db.transaction(name, "readwrite");
-      const st = tx.objectStore(name);
-      arr.forEach(x => st.put(x));
-      tx.oncomplete = () => res();
-      tx.onerror = () => rej(tx.error);
-      tx.onabort = () => rej(tx.error);
-    });
-  }
+  bulkPut(name, arr) { return new Promise((res, rej) => { const tx = DB.db.transaction(name, "readwrite"); const st = tx.objectStore(name); arr.forEach(x => st.put(x)); tx.oncomplete = () => res(); tx.onerror = () => rej(tx.error); tx.onabort = () => rej(tx.error); }); }
 };
 
-/* ── Seeded UAE category tree ────────────────────────────────── */
+/* ═══ Seed categories (Gulf presets — upserted every boot) ═══ */
 const SEED = [
   ["Fuel", "Expense", [["ADNOC", ["Special", "Premium", "Diesel"]], ["ENOC", ["Special", "Super", "Diesel"]], ["EPPCO", ["Special", "Diesel"]]]],
   ["Toll", "Expense", [["Salik", ["Al Garhoud", "Al Maktoum", "Al Safa", "Al Barsha", "Airport Tunnel", "Jebel Ali"]], ["Darb", ["Gate Crossing"]]]],
   ["RTA", "Expense", [["Parking", ["Zone Parking", "Seasonal Parking Card"]], ["Permits", ["Vehicle Permit", "Driver Permit"]], ["Fines", ["Traffic Fine", "Parking Fine"]]]],
   ["Driver Salaries", "Expense", [["Driver 1", ["Full Salary", "Advance"]], ["Driver 2", ["Full Salary", "Advance"]], ["General", ["Bonus", "Overtime"]]]],
+  ["Peshgi (Staff Advances)", "Expense", [["Drivers", ["Peshgi / Advance", "Advance Settlement"]], ["Office Staff", ["Peshgi / Advance"]]]],
+  ["Zakat & Tax", "Expense", [["Zakat", ["Zakat Payment"]], ["Tax", ["VAT Payment", "Corporate Tax"]]]],
   ["Utilities", "Expense", [["DEWA", ["Electricity", "Water"]], ["Du / Etisalat", ["Mobile", "Internet"]], ["Ejari", ["Annual Renewal"]]]],
   ["Nol Card", "Expense", [["Top-up", ["Driver", "Office"]]]],
   ["Maintenance", "Expense", [["Vehicle", ["Service", "Tyres", "Spare Parts", "Repair"]], ["Workshop", ["Labour", "Body Work"]]]],
@@ -403,15 +486,28 @@ const SEED = [
   ["Other Income", "Income", [["Miscellaneous", ["Other"]]]],
   ["Miscellaneous", "Expense", [["Uncategorized", ["Other"]]]]
 ];
+async function ensureSeeds() {
+  const rows = [];
+  for (const [name, type, subs] of SEED) {
+    rows.push({ id: "cat_" + name, path: name, name: name, parent: "", level: 0, type: type });
+    for (const [sub, items] of (subs || [])) {
+      const sp = name + "/" + sub;
+      rows.push({ id: "cat_" + sp, path: sp, name: sub, parent: name, level: 1, type: type });
+      for (const it of (items || [])) rows.push({ id: "cat_" + sp + "/" + it, path: sp + "/" + it, name: it, parent: sp, level: 2, type: type });
+    }
+  }
+  await DB.bulkPut("categories", rows);
+  await DB.put("meta", { key: "seeded", value: 2 });
+}
 
+/* ═══ State & helpers ═══ */
 let state = {
-  txns: [], cats: [],
+  txns: [], cats: [], parties: [], books: [],
   filters: { q: "", from: "", to: "", account: "All", type: "All" },
-  editingId: null, txType: "Expense", txAccount: "Bank",
-  pendingReceipt: null, detailId: null, balMap: {}
+  editingId: null, txType: "Expense", txAccount: "Bank", pendingReceipt: null, detailId: null, balMap: {}, partyBal: {},
+  bookId: localStorage.getItem("ava_book") || "book_main", currentParty: null
 };
-
-/* ── Helpers ─────────────────────────────────────────────────── */
+function inBook(t) { return (t.bookId || "book_main") === state.bookId; }
 function escapeHtml(s) { if (s == null) return ""; return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;"); }
 function fmt(n) { return CURRENCY + " " + (Number(n) || 0).toLocaleString("en-AE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
 function fmtShort(n) { return fmt(n).replace(CURRENCY + " ", ""); }
@@ -421,13 +517,19 @@ function formatDate(dstr) { if (!dstr) return "--"; const d = new Date(dstr.leng
 function uid() { return "tx_" + Date.now().toString(36) + "_" + Math.random().toString(36).slice(2, 8); }
 const cmpAsc = (a, b) => a.date < b.date ? -1 : a.date > b.date ? 1 : (a.createdAt < b.createdAt ? -1 : 1);
 const byName = (a, b) => a.name.localeCompare(b.name);
+const CURRENCY = "AED";
+const RECEIPT_MAX_BYTES = 1.5 * 1024 * 1024;
 let toastTimer;
-function toast(msg, type) { const t = $("toast"); clearTimeout(toastTimer); t.textContent = msg; t.className = "toast show " + (type || "success"); toastTimer = setTimeout(() => t.classList.remove("show"), 3200); }
+function toast(msg, type) { const el = $("toast"); clearTimeout(toastTimer); el.textContent = msg; el.className = "toast show " + (type || "success"); toastTimer = setTimeout(() => el.classList.remove("show"), 3200); }
 function openSheet(id) { $(id).classList.add("show"); document.body.style.overflow = "hidden"; }
 function closeSheet(id) { $(id).classList.remove("show"); document.body.style.overflow = ""; }
+function openTypeSheet() { openSheet("typeSheet"); }
 function download(filename, content, mime) { const blob = new Blob([content], { type: mime }); const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = filename; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 3000); }
+function showSection(name) { document.querySelectorAll(".section").forEach(s => s.classList.toggle("active", s.id === "sec-" + name)); document.querySelectorAll(".nav-item").forEach(n => n.classList.toggle("active", n.dataset.sec === name)); window.scrollTo({ top: 0 }); }
+function goLedger(account) { state.filters.account = account; renderChips(); renderLedger(); showSection("ledger"); }
+document.addEventListener("keydown", e => { if (e.key === "Escape") ["typeSheet", "txSheet", "trSheet", "detailSheet", "partySheet"].forEach(closeSheet); });
 
-/* ── Theme ───────────────────────────────────────────────────── */
+/* ═══ Theme ═══ */
 function applyTheme() {
   const pref = localStorage.getItem("ava_theme") || "auto";
   const dark = pref === "dark" || (pref === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches);
@@ -438,58 +540,162 @@ function applyTheme() {
 function setTheme(v) { localStorage.setItem("ava_theme", v); applyTheme(); }
 function cycleTheme() { const order = ["auto", "light", "dark"]; const cur = localStorage.getItem("ava_theme") || "auto"; setTheme(order[(order.indexOf(cur) + 1) % order.length]); }
 window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", applyTheme);
-
-/* ── Navigation ──────────────────────────────────────────────── */
-function showSection(name) {
-  document.querySelectorAll(".section").forEach(s => s.classList.toggle("active", s.id === "sec-" + name));
-  document.querySelectorAll(".nav-item").forEach(n => n.classList.toggle("active", n.dataset.sec === name));
-  window.scrollTo({ top: 0 });
-}
-function goLedger(account) { state.filters.account = account; renderChips(); renderLedger(); showSection("ledger"); }
-document.addEventListener("keydown", e => { if (e.key === "Escape") ["typeSheet", "txSheet", "trSheet", "detailSheet"].forEach(closeSheet); });
 </script>
 <script>
 "use strict";
-/* ── Seed & load ─────────────────────────────────────────────── */
-async function seedIfNeeded() {
-  if (await DB.getMeta("seeded")) return;
-  const rows = [];
-  for (const [name, type, subs] of SEED) {
-    rows.push({ path: name, name: name, parent: "", level: 0, type: type });
-    for (const [sub, items] of (subs || [])) {
-      const sp = name + "/" + sub;
-      rows.push({ path: sp, name: sub, parent: name, level: 1, type: type });
-      for (const it of (items || [])) {
-        rows.push({ path: sp + "/" + it, name: it, parent: sp, level: 2, type: type });
-      }
-    }
+/* ═══ Load & balances ═══ */
+async function ensureBooks() {
+  state.books = await DB.getAll("books");
+  if (!state.books.some(b => b.id === "book_main")) {
+    await DB.put("books", { id: "book_main", name: "Main Book", createdAt: new Date().toISOString() });
+    state.books = await DB.getAll("books");
   }
-  await DB.bulkPut("categories", rows);
-  await DB.put("meta", { key: "seeded", value: true });
+  if (!state.books.some(b => b.id === state.bookId)) { state.bookId = "book_main"; localStorage.setItem("ava_book", state.bookId); }
 }
 async function loadAll() {
   state.txns = await DB.getAll("transactions");
   state.cats = await DB.getAll("categories");
-  computeBalances();
-  renderDashboard(); renderChips(); renderLedger(); renderReports(); renderCatList();
+  state.parties = await DB.getAll("parties");
+  computeBalances(); computePartyBalances();
+  renderDashboard(); renderChips(); renderLedger(); renderReports(); renderCatList(); renderParties(); renderBookChips(); renderBookList();
   updateSettingsInfo();
 }
 function computeBalances() {
-  const sorted = [...state.txns].sort(cmpAsc);
+  const sorted = [...state.txns].filter(inBook).sort(cmpAsc);
   let bank = 0, petty = 0; const map = {};
   for (const t of sorted) {
     if (t.type === "Transfer") {
       if (t.from === "Bank") bank -= t.amount; else petty -= t.amount;
       if (t.to === "Bank") bank += t.amount; else petty += t.amount;
       map[t.id] = t.from === "Bank" ? bank : petty;
-    } else if (t.account === "Bank") { bank += t.type === "Income" ? t.amount : -t.amount; map[t.id] = bank; }
+    } else if (t.credit) { /* no cash impact */ }
+    else if (t.account === "Bank") { bank += t.type === "Income" ? t.amount : -t.amount; map[t.id] = bank; }
     else { petty += t.type === "Income" ? t.amount : -t.amount; map[t.id] = petty; }
   }
   state.bal = { bank: bank, petty: petty }; state.balMap = map;
 }
-function monthTxns(prefix) { return state.txns.filter(t => t.date && t.date.slice(0, 7) === prefix); }
+function computePartyBalances() {
+  const map = {};
+  for (const t of state.txns) {
+    if (!t.partyId || !inBook(t)) continue;
+    const p = state.parties.find(x => x.id === t.partyId); if (!p) continue;
+    let delta = 0;
+    if (p.ptype === "Customer" && t.type === "Income") delta = t.credit ? t.amount : -t.amount;
+    if (p.ptype === "Supplier" && t.type === "Expense") delta = t.credit ? -t.amount : t.amount;
+    map[t.partyId] = (map[t.partyId] || 0) + delta;
+  }
+  state.partyBal = map;
+}
+function monthTxns(prefix) { return state.txns.filter(t => inBook(t) && t.date && t.date.slice(0, 7) === prefix); }
 
-/* ── Dashboard ───────────────────────────────────────────────── */
+/* ═══ Books ═══ */
+function renderBookChips() {
+  const chips = state.books.map(b => '<button class="chip' + (b.id === state.bookId ? " book-active" : "") + '" onclick="switchBook(\'' + b.id + '\')">' + escapeHtml(b.name) + "</button>");
+  chips.push('<button class="chip" onclick="quickAddBook()">＋</button>');
+  $("bookChips").innerHTML = chips.join("");
+}
+function renderBookList() {
+  $("bookList").innerHTML = state.books.map(b => {
+    const count = state.txns.filter(t => (t.bookId || "book_main") === b.id).length;
+    return '<div class="book-row' + (b.id === state.bookId ? " active" : "") + '"><div><b>' + escapeHtml(b.name) + "</b> <span class='muted-sm'>(" + count + ")</span></div><div style='display:flex;gap:6px;'>" +
+      (b.id !== "book_main" ? '<button class="mini-del" onclick="delBook(\'' + b.id + '\')" title="' + T("b_del") + '">×</button>' : "") + "</div></div>";
+  }).join("");
+}
+function switchBook(id) { state.bookId = id; localStorage.setItem("ava_book", id); renderBookChips(); renderBookList(); loadAll(); }
+async function addBook() { const nm = $("bookName").value.trim(); if (!nm) return; await quickAddBook(nm); $("bookName").value = ""; }
+async function quickAddBook(nm) {
+  const name = (nm != null ? nm : prompt(T("b_name"), ""));
+  if (!name || !name.trim()) return;
+  const id = "book_" + Date.now().toString(36);
+  await DB.put("books", { id: id, name: name.trim(), createdAt: new Date().toISOString() });
+  state.books = await DB.getAll("books"); renderBookChips(); renderBookList();
+  toast(T("b_add") + " ✓", "success");
+}
+async function delBook(id) {
+  if (id === "book_main") return toast("Main Book ✗", "error");
+  if (state.txns.some(t => (t.bookId || "book_main") === id)) return toast("Book has transactions — switch to it and erase/move them first", "error");
+  if (!confirm("Delete this book?")) return;
+  await DB.del("books", id); state.books = await DB.getAll("books");
+  renderBookChips(); renderBookList(); toast(T("b_del") + " ✓", "success");
+}
+
+/* ═══ Parties ═══ */
+async function addParty() {
+  const name = $("pName").value.trim();
+  if (!name) { toast(T("p_name"), "error"); return; }
+  await DB.put("parties", { id: uid(), name: name, ptype: $("pType").value, phone: $("pPhone").value.trim(), createdAt: new Date().toISOString(), createdByDevice: deviceName() });
+  $("pName").value = ""; $("pPhone").value = "";
+  state.parties = await DB.getAll("parties"); computePartyBalances(); renderParties();
+  toast(T("p_add") + " ✓", "success");
+}
+async function delParty(id) {
+  const p = state.parties.find(x => x.id === id); if (!p) return;
+  if (!confirm("Delete party '" + p.name + "'? Its past entries stay in the ledger but unlink from the profile.")) return;
+  await DB.del("parties", id);
+  state.parties = await DB.getAll("parties"); computePartyBalances(); renderParties();
+  toast(T("del") + " ✓", "success");
+}
+function renderParties() {
+  const list = [...state.parties].sort(byName);
+  $("partyList").innerHTML = list.length ? list.map(p => {
+    const bal = state.partyBal[p.id] || 0;
+    const balCls = bal > 0 ? "income-text" : bal < 0 ? "expense-text" : "";
+    const balLbl = bal > 0 ? T("p_they_owe") : bal < 0 ? T("p_you_owe") : T("p_balanced");
+    return '<div class="party-row" onclick="openParty(\'' + p.id + '\')"><div><div class="p-name">' + escapeHtml(p.name) + ' <span class="cat-type ' + (p.ptype === "Customer" ? "t-inc" : "t-exp") + '">' + (p.ptype === "Customer" ? T("p_customer") : T("p_supplier")) + "</span></div>" +
+      '<div class="p-sub">' + escapeHtml(p.phone || "") + (p.createdByDevice ? " · " + escapeHtml(p.createdByDevice) : "") + "</div></div>" +
+      '<div class="p-bal ' + balCls + '">' + fmtShort(Math.abs(bal)) + '<div class="p-sub">' + balLbl + "</div></div></div>";
+  }).join("") : '<p class="muted-sm">' + T("p_none") + "</p>";
+}
+function openParty(id) {
+  const p = state.parties.find(x => x.id === id); if (!p) return;
+  state.currentParty = id;
+  const bal = state.partyBal[id] || 0;
+  const isCust = p.ptype === "Customer";
+  const rows = state.txns.filter(t => t.partyId === id && inBook(t)).sort(cmpAsc);
+  let run = 0;
+  const ledgerRows = rows.map(t => {
+    if (isCust && t.type === "Income") run += t.credit ? t.amount : -t.amount;
+    if (!isCust && t.type === "Expense") run += t.credit ? -t.amount : t.amount;
+    const sign = t.credit ? "⇄" : t.type === "Income" ? "+" : "−";
+    return "<tr onclick=\"closeSheet('partySheet');openDetail('" + t.id + "')\"><td>" + formatDate(t.date) + "</td><td>" + (t.credit ? '<span class="badge-party">' + T("d_credit") + "</span>" : T("d_cash")) + "</td><td>" + escapeHtml(t.description || t.category || t.type) + "</td><td class='num'>" + sign + " " + fmtShort(t.amount) + "</td><td class='num'>" + fmtShort(run) + "</td></tr>";
+  }).reverse().join("");
+  $("psTitle").textContent = p.name;
+  $("partyBody").innerHTML =
+    '<div class="big-balance"><div class="amt ' + (bal > 0 ? "income-text" : bal < 0 ? "expense-text" : "") + '">' + fmtShort(Math.abs(bal)) + " AED</div><div class='lbl'>" + (bal > 0 ? T("p_they_owe") : bal < 0 ? T("p_you_owe") : T("p_balanced")) + (p.phone ? " · " + escapeHtml(p.phone) : "") + "</div></div>" +
+    '<div class="action-bar" style="margin-bottom:12px;">' +
+    (isCust
+      ? '<button class="btn btn-success" onclick="partyAdd(\'' + id + '\',\'cust_credit\')">' + T("p_credit_given") + "</button>" + '<button class="btn btn-primary" onclick="partyAdd(\'' + id + '\',\'cust_cash\')">' + T("p_jama_cash") + "</button>"
+      : '<button class="btn btn-danger" onclick="partyAdd(\'' + id + '\',\'supp_credit\')">' + T("p_udhaar_taken") + "</button>" + '<button class="btn btn-primary" onclick="partyAdd(\'' + id + '\',\'supp_cash\')">' + T("p_cash_paid") + "</button>") +
+    '<button class="btn btn-ghost" onclick="delParty(\'' + id + '\')">' + T("del") + "</button></div>" +
+    '<div class="card-title">' + T("p_ledger") + "</div>" +
+    '<div class="table-wrap"><table><thead><tr><th>' + T("l_date") + "</th><th>Mode</th><th>" + T("l_desc") + "</th><th class='num'>" + T("l_amount") + "</th><th class='num'>Bal</th></tr></thead><tbody>" +
+    (ledgerRows || '<tr><td colspan="5" class="empty-state">—</td></tr>') + "</tbody></table></div>";
+  openSheet("partySheet");
+}
+function partyAdd(id, kind) {
+  const p = state.parties.find(x => x.id === id); if (!p) return;
+  closeSheet("partySheet");
+  const preset = { partyId: id };
+  if (kind === "cust_credit") { preset.credit = true; openTx("Income", "Bank", null, preset); }
+  if (kind === "cust_cash") { preset.credit = false; openTx("Income", "Bank", null, preset); }
+  if (kind === "supp_credit") { preset.credit = true; openTx("Expense", "Bank", null, preset); }
+  if (kind === "supp_cash") { preset.credit = false; openTx("Expense", "Bank", null, preset); }
+}
+
+/* ═══ Dashboard & ledger ═══ */
+function txBadges(t) {
+  let s = "";
+  if (t.ref) s += '<span class="badge-ref">' + escapeHtml(t.ref) + "</span>";
+  if (t.partyName) s += '<span class="badge-party">' + escapeHtml(t.partyName) + "</span>";
+  if (t.vat) s += '<span class="badge-vat">TRN</span>';
+  if (t.receipt) s += '<span title="Receipt">&#128247;</span>';
+  return s || "--";
+}
+function txAcctLabel(t) {
+  if (t.type === "Transfer") return t.from === "Bank" ? "Bank →" : "Petty →";
+  if (t.credit) return "—";
+  return t.account === "Bank" ? "Bank" : "Petty";
+}
 function renderDashboard() {
   const b = state.bal || { bank: 0, petty: 0 };
   const setBal = (id, v) => { const el = $(id); el.textContent = fmt(v); el.className = "amount " + (v >= 0 ? "income-text" : "expense-text"); };
@@ -499,20 +705,18 @@ function renderDashboard() {
   const exp = m.filter(t => t.type === "Expense").reduce((s, t) => s + t.amount, 0);
   $("mIncome").textContent = fmtShort(inc); $("mExpense").textContent = fmtShort(exp);
   const netEl = $("mNet"); netEl.textContent = fmtShort(inc - exp); netEl.className = "value " + (inc - exp >= 0 ? "income-text" : "expense-text");
-  const recent = [...state.txns].sort((a, b2) => cmpAsc(b2, a)).slice(0, 8);
+  const recent = state.txns.filter(inBook).sort((a, b2) => cmpAsc(b2, a)).slice(0, 8);
   $("recentBody").innerHTML = recent.length ? recent.map(t => {
     const sign = t.type === "Income" ? "+" : t.type === "Expense" ? "−" : "⇄";
     const cls = t.type === "Income" ? "income-text" : t.type === "Expense" ? "expense-text" : "";
-    return "<tr onclick=\"openDetail('" + t.id + "')\"><td>" + formatDate(t.date) + "</td><td>" + (t.ref ? '<span class="badge-ref">' + escapeHtml(t.ref) + "</span>" : "--") + "</td><td>" + escapeHtml(t.description || t.type) + "</td><td>" + t.type + "</td><td class='num " + cls + "'>" + sign + " " + fmtShort(t.amount) + "</td></tr>";
-  }).join("") : '<tr><td colspan="5" class="empty-state">No transactions yet — tap ＋ to add your first entry.</td></tr>';
+    return "<tr onclick=\"openDetail('" + t.id + "')\"><td>" + formatDate(t.date) + "</td><td>" + txBadges(t) + "</td><td>" + escapeHtml(t.description || t.type) + "</td><td>" + t.type + "</td><td class='num " + cls + "'>" + sign + " " + fmtShort(t.amount) + "</td></tr>";
+  }).join("") : '<tr><td colspan="5" class="empty-state">' + T("empty_tx") + "</td></tr>";
 }
-
-/* ── Chips, search, filters ──────────────────────────────────── */
 const ACCOUNTS = ["All", "Bank", "PettyCash"];
 const TYPES = ["All", "Income", "Expense", "Transfer"];
 function renderChips() {
-  $("accChips").innerHTML = ACCOUNTS.map(a => '<button class="chip' + (state.filters.account === a ? " active" : "") + '" onclick="setFilter(\'account\',\'' + a + '\')">' + (a === "All" ? "All accounts" : a === "Bank" ? "\uD83C\uFE0F\u200D Bank" : "Petty Cash") + "</button>").join("");
-  $("typeChips").innerHTML = TYPES.map(t => '<button class="chip' + (state.filters.type === t ? " active" : "") + '" onclick="setFilter(\'type\',\'' + t + '\')">' + t + "</button>").join("");
+  $("accChips").innerHTML = ACCOUNTS.map(a => '<button class="chip' + (state.filters.account === a ? " active" : "") + '" onclick="setFilter(\'account\',\'' + a + '\')">' + (a === "All" ? T("all_accounts") : a === "Bank" ? "🏦 Bank" : "💼 Petty") + "</button>").join("");
+  $("typeChips").innerHTML = TYPES.map(tp => '<button class="chip' + (state.filters.type === tp ? " active" : "") + '" onclick="setFilter(\'type\',\'' + tp + '\')">' + T("t_" + tp) + "</button>").join("");
 }
 function setFilter(k, v) { state.filters[k] = v; renderChips(); renderLedger(); }
 function onSearch(v) { state.filters.q = v.trim().toLowerCase(); renderLedger(); }
@@ -521,6 +725,7 @@ function clearFilters() { state.filters = { q: "", from: "", to: "", account: "A
 function filteredTxns() {
   const f = state.filters;
   return state.txns.filter(t => {
+    if (!inBook(t)) return false;
     if (f.account !== "All") {
       if (t.type === "Transfer") { if (t.from !== f.account && t.to !== f.account) return false; }
       else if (t.account !== f.account) return false;
@@ -529,22 +734,12 @@ function filteredTxns() {
     if (f.from && t.date < f.from) return false;
     if (f.to && t.date > f.to) return false;
     if (f.q) {
-      const hay = [t.description, t.ref, t.category, t.subcategory, t.item, t.type, t.account, t.from, t.to].filter(Boolean).join(" ").toLowerCase();
+      const hay = [t.description, t.ref, t.category, t.subcategory, t.item, t.type, t.account, t.from, t.to, t.partyName, t.createdByDevice].filter(Boolean).join(" ").toLowerCase();
       if (!hay.includes(f.q)) return false;
     }
     return true;
   }).sort((a, b) => cmpAsc(b, a));
 }
-
-/* ── Ledger ──────────────────────────────────────────────────── */
-function txBadges(t) {
-  let s = "";
-  if (t.ref) s += '<span class="badge-ref">' + escapeHtml(t.ref) + "</span>";
-  if (t.vat) s += '<span class="badge-vat">TRN</span>';
-  if (t.receipt) s += '<span title="Receipt attached">&#128247;</span>';
-  return s || "--";
-}
-function txAcctLabel(t) { return t.type === "Transfer" ? (t.from === "Bank" ? "Bank →" : "Petty →") : (t.account === "Bank" ? "Bank" : "Petty"); }
 function renderLedger() {
   const rows = filteredTxns();
   $("ledgerBody").innerHTML = rows.length ? rows.map(t => {
@@ -555,10 +750,10 @@ function renderLedger() {
     return "<tr onclick=\"openDetail('" + t.id + "')\"><td>" + formatDate(t.date) + "</td><td>" + txBadges(t) + "</td><td>" + escapeHtml(t.description || t.type) +
       (cat ? '<div class="cell-sub">' + escapeHtml(cat) + "</div>" : "") + "</td><td>" + txAcctLabel(t) + "</td><td>" + t.type +
       "</td><td class='num " + cls + "'>" + sign + " " + fmtShort(t.amount) + "</td><td class='num'>" + (bal === undefined ? "--" : fmtShort(bal)) + "</td></tr>";
-  }).join("") : '<tr><td colspan="7" class="empty-state">Nothing matches these filters.</td></tr>';
+  }).join("") : '<tr><td colspan="7" class="empty-state">' + T("empty_ledger") + "</td></tr>";
 }
 
-/* ── Reports ─────────────────────────────────────────────────── */
+/* ═══ Reports ═══ */
 function renderReports() {
   const m = $("repMonth").value || monthPrefix();
   const rows = monthTxns(m);
@@ -578,10 +773,10 @@ function bars(elId, groups, color) {
   $(elId).innerHTML = entries.length ? entries.map(([k, v]) =>
     '<div class="bar-row"><div class="bar-label" title="' + escapeHtml(k) + '">' + escapeHtml(k) + '</div>' +
     '<div class="bar-track"><div class="bar-fill" style="width:' + Math.round(v / max * 100) + "%;background:" + color + '"></div></div>' +
-    '<div class="bar-amt">' + fmtShort(v) + "</div></div>").join("") : '<p class="muted-sm">No data for this month.</p>';
+    '<div class="bar-amt">' + fmtShort(v) + "</div></div>").join("") : '<p class="muted-sm">—</p>';
 }
 
-/* ── Category cascading selects ──────────────────────────────── */
+/* ═══ Categories ═══ */
 function fillCatSelects(preset) {
   const p = preset || {};
   const lvl0 = state.cats.filter(c => c.level === 0 && c.type === state.txType).sort(byName);
@@ -608,158 +803,10 @@ function pathFromNames(type, cat, sub, item) {
   if (!item) return c1.path;
   const c2 = find(item, c1.path, 2); return c2 ? c2.path : c1.path;
 }
-
-/* ── Transaction sheet ───────────────────────────────────────── */
-function setChipRow(rowId, v) { document.querySelectorAll("#" + rowId + " .chip").forEach(c => c.classList.toggle("active", c.dataset.v === v)); }
-function setTxType(v) { state.txType = v; setChipRow("txTypeChips", v); fillCatSelects(); }
-function setTxAccount(v) { state.txAccount = v; setChipRow("txAccountChips", v); }
-function openTx(type, account, editId) {
-  state.editingId = editId || null; state.txType = type; state.txAccount = account || "Bank"; state.pendingReceipt = null;
-  setChipRow("txTypeChips", state.txType); setChipRow("txAccountChips", state.txAccount);
-  $("txDate").value = today(); $("txAmount").value = ""; $("txRef").value = ""; $("txDesc").value = ""; $("txVat").checked = false;
-  $("txReceiptPreview").classList.remove("show"); $("txReceiptPreview").src = ""; $("txReceiptPdf").style.display = "none"; $("txReceipt").value = "";
-  if (editId) {
-    const t = state.txns.find(x => x.id === editId);
-    if (t) {
-      state.txType = t.type; state.txAccount = t.account || "Bank";
-      setChipRow("txTypeChips", state.txType); setChipRow("txAccountChips", state.txAccount);
-      fillCatSelects({ cat: pathFromNames(t.type, t.category, t.subcategory, t.item) || "", sub: "", item: "" });
-      $("txDate").value = t.date; $("txAmount").value = t.amount; $("txRef").value = t.ref || ""; $("txDesc").value = t.description || ""; $("txVat").checked = !!t.vat;
-      if (t.receipt) showReceiptPreview(t.receipt);
-    }
-    $("txTitle").textContent = "Edit Transaction"; $("txSaveBtn").textContent = "Save Changes";
-  } else {
-    fillCatSelects();
-    $("txTitle").textContent = "Add " + (type === "Income" ? "Income" : "Expense"); $("txSaveBtn").textContent = "Save";
-  }
-  openSheet("txSheet");
-}
-function showReceiptPreview(dataUrl) {
-  if (dataUrl.indexOf("data:image") === 0) { $("txReceiptPreview").src = dataUrl; $("txReceiptPreview").classList.add("show"); $("txReceiptPdf").style.display = "none"; }
-  else if (dataUrl) { $("txReceiptPdfLink").href = dataUrl; $("txReceiptPdf").style.display = "block"; $("txReceiptPreview").classList.remove("show"); }
-}
-function handleReceipt(input) {
-  const file = input.files[0]; if (!file) return;
-  if (file.type === "application/pdf") {
-    if (file.size > RECEIPT_MAX_BYTES) { toast("PDF too large (max 1.5 MB)", "error"); input.value = ""; return; }
-    const reader = new FileReader();
-    reader.onload = e => { state.pendingReceipt = e.target.result; showReceiptPreview(state.pendingReceipt); };
-    reader.onerror = () => toast("Could not read file", "error");
-    reader.readAsDataURL(file);
-  } else if (file.type.indexOf("image/") === 0) {
-    const reader = new FileReader();
-    reader.onload = e => {
-      const img = new Image();
-      img.onload = () => {
-        const scale = Math.min(1, 1200 / Math.max(img.width, img.height));
-        const c = document.createElement("canvas");
-        c.width = Math.round(img.width * scale); c.height = Math.round(img.height * scale);
-        c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
-        const dataUrl = c.toDataURL("image/jpeg", 0.72);
-        if (dataUrl.length > RECEIPT_MAX_BYTES * 1.4) { toast("Image too large even after compression — use a smaller photo", "error"); input.value = ""; return; }
-        state.pendingReceipt = dataUrl; showReceiptPreview(dataUrl);
-      };
-      img.onerror = () => toast("Could not read image", "error");
-      img.src = e.target.result;
-    };
-    reader.readAsDataURL(file);
-  } else { toast("Only images or PDF receipts are supported", "error"); input.value = ""; }
-}
-async function saveTx() {
-  const amount = Math.round(parseFloat($("txAmount").value) * 100) / 100;
-  if (!amount || amount <= 0) { toast("Enter a valid amount greater than 0", "error"); return; }
-  if (!$("txCat").value) { toast("Choose a category", "error"); return; }
-  const getName = sel => { const v = $(sel).value; if (!v) return ""; const c = state.cats.find(x => x.path === v); return c ? c.name : ""; };
-  const old = state.editingId ? state.txns.find(x => x.id === state.editingId) : null;
-  const t = {
-    id: old ? old.id : uid(),
-    date: $("txDate").value || today(),
-    type: state.txType,
-    account: state.txAccount,
-    category: getName("txCat") || "Miscellaneous",
-    subcategory: getName("txSub"),
-    item: getName("txItem"),
-    amount: amount,
-    vat: $("txVat").checked,
-    ref: $("txRef").value.trim(),
-    description: $("txDesc").value.trim(),
-    receipt: state.pendingReceipt !== null ? state.pendingReceipt : (old ? (old.receipt || "") : ""),
-    createdAt: old ? old.createdAt : new Date().toISOString(),
-    updatedAt: new Date().toISOString()
-  };
-  await DB.put("transactions", t);
-  state.editingId = null; state.pendingReceipt = null;
-  closeSheet("txSheet"); await loadAll();
-  toast(old ? "Transaction updated" : "Saved", "success");
-}
-
-/* ── Transfer sheet ──────────────────────────────────────────── */
-function openTransfer(editId) {
-  state.editingId = editId || null;
-  $("trDate").value = today(); $("trAmount").value = ""; $("trRef").value = ""; $("trDesc").value = "";
-  if (editId) {
-    const t = state.txns.find(x => x.id === editId);
-    if (t) { $("trFrom").value = t.from; $("trTo").value = t.to; $("trDate").value = t.date; $("trAmount").value = t.amount; $("trRef").value = t.ref || ""; $("trDesc").value = t.description || ""; $("trTitle").textContent = "Edit Transfer"; $("trSaveBtn").textContent = "Save Changes"; }
-  } else { $("trTitle").textContent = "Transfer Funds"; $("trSaveBtn").textContent = "Save Transfer"; }
-  openSheet("trSheet");
-}
-async function saveTransfer() {
-  const from = $("trFrom").value, to = $("trTo").value;
-  const amount = Math.round(parseFloat($("trAmount").value) * 100) / 100;
-  if (from === to) { toast("Cannot transfer to the same account", "error"); return; }
-  if (!amount || amount <= 0) { toast("Enter a valid amount", "error"); return; }
-  if (!state.editingId) {
-    const avail = from === "Bank" ? (state.bal ? state.bal.bank : 0) : (state.bal ? state.bal.petty : 0);
-    if (amount > avail) { toast("Insufficient funds in " + (from === "Bank" ? "Bank" : "Petty Cash"), "error"); return; }
-  }
-  const old = state.editingId ? state.txns.find(x => x.id === state.editingId) : null;
-  await DB.put("transactions", {
-    id: old ? old.id : uid(), date: $("trDate").value || today(), type: "Transfer",
-    from: from, to: to, amount: amount, ref: $("trRef").value.trim(), description: $("trDesc").value.trim(),
-    createdAt: old ? old.createdAt : new Date().toISOString(), updatedAt: new Date().toISOString()
-  });
-  state.editingId = null; closeSheet("trSheet"); await loadAll(); toast("Transfer saved", "success");
-}
-
-/* ── Detail sheet ────────────────────────────────────────────── */
-function openDetail(id) {
-  const t = state.txns.find(x => x.id === id); if (!t) return;
-  state.detailId = id;
-  const acctRow = t.type === "Transfer"
-    ? ["Accounts", (t.from === "Bank" ? "🏦 Bank" : "💼 Petty Cash") + " → " + (t.to === "Bank" ? "🏦 Bank" : "💼 Petty Cash")]
-    : ["Account", t.account === "Bank" ? "🏦 Bank Account" : "💼 Petty Cash"];
-  const rows = [
-    ["Type", escapeHtml(t.type) + (t.vat ? ' <span class="badge-vat">TRN · VAT 5%</span>' : "")],
-    acctRow,
-    ["Date", formatDate(t.date)],
-    ["Amount", "<b>" + fmt(t.amount) + "</b>"],
-    ["Category", escapeHtml([t.category, t.subcategory, t.item].filter(Boolean).join(" › ") || "—")],
-    ["Cheque / Ref", escapeHtml(t.ref || "—")],
-    ["Description", escapeHtml(t.description || "—")],
-    ["Created", t.createdAt ? new Date(t.createdAt).toLocaleString() : "—"],
-    ["Updated", t.updatedAt ? new Date(t.updatedAt).toLocaleString() : "—"]
-  ];
-  $("detailBody").innerHTML = rows.map(r => '<div class="d-row"><div class="d-label">' + r[0] + '</div><div class="d-val">' + r[1] + "</div></div>").join("") +
-    (t.receipt ? (t.receipt.indexOf("data:image") === 0 ? '<img class="detail-receipt" src="' + t.receipt + '" alt="Receipt">' : '<a class="btn btn-ghost" style="margin-top:12px" href="' + t.receipt + '" target="_blank">📄 Open PDF receipt</a>') : "");
-  openSheet("detailSheet");
-}
-function editFromDetail() {
-  const t = state.txns.find(x => x.id === state.detailId); if (!t) return;
-  closeSheet("detailSheet");
-  if (t.type === "Transfer") openTransfer(t.id); else openTx(t.type, t.account, t.id);
-}
-async function deleteFromDetail() {
-  const t = state.txns.find(x => x.id === state.detailId); if (!t) return;
-  if (!confirm("Delete this " + t.type.toLowerCase() + " of " + fmt(t.amount) + "? This cannot be undone.")) return;
-  await DB.del("transactions", t.id);
-  closeSheet("detailSheet"); await loadAll(); toast("Deleted", "success");
-}
-
-/* ── Settings: categories CRUD ───────────────────────────────── */
 async function addCategory() {
   const type = $("catType").value, name = $("catName").value.trim(), sub = $("catSub").value.trim(), item = $("catItem").value.trim();
-  if (!name) { toast("Enter a category name", "error"); return; }
-  const mk = (nm, parent, level) => ({ path: parent ? parent + "/" + nm : nm, name: nm, parent: parent || "", level: level, type: type });
+  if (!name) { toast(T("cat_name"), "error"); return; }
+  const mk = (nm, parent, level) => ({ id: "cat_" + (parent ? parent + "/" + nm : nm), path: parent ? parent + "/" + nm : nm, name: nm, parent: parent || "", level: level, type: type });
   const rows = [];
   const c0 = state.cats.find(c => c.level === 0 && c.type === type && c.name.toLowerCase() === name.toLowerCase());
   rows.push(c0 || mk(name, "", 0));
@@ -776,14 +823,15 @@ async function addCategory() {
   await DB.bulkPut("categories", rows);
   $("catName").value = ""; $("catSub").value = ""; $("catItem").value = "";
   state.cats = await DB.getAll("categories"); renderCatList(); fillCatSelects();
-  toast("Category saved", "success");
+  toast(T("add_cat") + " ✓", "success");
 }
-async function delCategory(path) {
-  if (!confirm("Delete '" + path + "' and everything under it? Existing transactions are not affected.")) return;
+async function delCategory(encPath) {
+  const path = decodeURIComponent(encPath);
+  if (!confirm("Delete '" + path + "'? Existing transactions are not affected.")) return;
   const victims = state.cats.filter(c => c.path === path || c.parent === path || c.parent.indexOf(path + "/") === 0);
   for (const c of victims) await DB.del("categories", c.path);
   state.cats = await DB.getAll("categories"); renderCatList(); fillCatSelects();
-  toast("Category deleted", "success");
+  toast(T("del") + " ✓", "success");
 }
 function renderCatList() {
   const byParent = {};
@@ -793,79 +841,228 @@ function renderCatList() {
     '<span class="cat-type ' + (c.type === "Income" ? "t-inc" : "t-exp") + '">' + c.type[0] + '</span><span>' + escapeHtml(c.name) + '</span>' +
     '<button class="mini-del" onclick="delCategory(\'' + encodeURIComponent(c.path) + '\')" title="Delete">×</button></div>' +
     kidsHtml(c.path, depth + 1)).join("");
-  $("catList").innerHTML = (byParent[""] || []).length ? kidsHtml("", 0) : '<p class="muted-sm">No categories.</p>';
+  $("catList").innerHTML = (byParent[""] || []).length ? kidsHtml("", 0) : '<p class="muted-sm">—</p>';
+}
+</script>
+<script>
+"use strict";
+/* ═══ Transaction sheet ═══ */
+function setChipRow(rowId, v) { document.querySelectorAll("#" + rowId + " .chip").forEach(c => c.classList.toggle("active", c.dataset.v === v)); }
+function setTxType(v) { state.txType = v; setChipRow("txTypeChips", v); fillCatSelects(); fillPartySelect(); }
+function setTxAccount(v) { state.txAccount = v; setChipRow("txAcctRow", v); }
+function fillPartySelect(presetId) {
+  const want = state.txType === "Income" ? "Customer" : "Supplier";
+  const opts = state.parties.filter(p => p.ptype === want).sort(byName);
+  $("partyWrap").style.display = opts.length ? "block" : "none";
+  $("txParty").innerHTML = '<option value="">—</option>' + opts.map(p => '<option value="' + p.id + '"' + (presetId === p.id ? " selected" : "") + ">" + escapeHtml(p.name) + "</option>").join("");
+}
+function onPartyPick() { const has = !!$("txParty").value; $("creditWrap").style.display = has ? "block" : "none"; if (!has) { $("txCredit").checked = false; onCreditToggle(); } }
+function onCreditToggle() { $("txAcctRow").style.display = $("txCredit").checked ? "none" : "flex"; }
+function openTx(type, account, editId, preset) {
+  state.editingId = editId || null; state.txType = type; state.txAccount = account || "Bank"; state.pendingReceipt = null;
+  setChipRow("txTypeChips", state.txType); setChipRow("txAcctRow", state.txAccount);
+  $("txDate").value = today(); $("txAmount").value = ""; $("txRef").value = ""; $("txDesc").value = ""; $("txVat").checked = false;
+  $("txCredit").checked = false; $("creditWrap").style.display = "none"; $("txAcctRow").style.display = "flex";
+  $("txReceiptPreview").classList.remove("show"); $("txReceiptPreview").src = ""; $("txReceiptPdf").style.display = "none"; $("txReceipt").value = "";
+  fillPartySelect(preset && preset.partyId);
+  if (preset && preset.partyId) { $("creditWrap").style.display = "block"; $("txCredit").checked = !!preset.credit; onCreditToggle(); }
+  if (editId) {
+    const t = state.txns.find(x => x.id === editId);
+    if (t) {
+      state.txType = t.type; state.txAccount = t.account || "Bank";
+      setChipRow("txTypeChips", state.txType); setChipRow("txAcctRow", state.txAccount);
+      fillCatSelects({ cat: pathFromNames(t.type, t.category, t.subcategory, t.item) || "", sub: "", item: "" });
+      fillPartySelect(t.partyId);
+      if (t.partyId) { $("creditWrap").style.display = "block"; $("txCredit").checked = !!t.credit; onCreditToggle(); }
+      $("txDate").value = t.date; $("txAmount").value = t.amount; $("txRef").value = t.ref || ""; $("txDesc").value = t.description || ""; $("txVat").checked = !!t.vat;
+      if (t.receipt) showReceiptPreview(t.receipt);
+    }
+    $("txTitle").textContent = T("tx_edit"); $("txSaveBtn").textContent = T("save");
+  } else {
+    fillCatSelects();
+    $("txTitle").textContent = type === "Income" ? T("tx_add_income") : T("tx_add_expense"); $("txSaveBtn").textContent = T("save");
+  }
+  openSheet("txSheet");
+}
+function showReceiptPreview(dataUrl) {
+  if (dataUrl.indexOf("data:image") === 0) { $("txReceiptPreview").src = dataUrl; $("txReceiptPreview").classList.add("show"); $("txReceiptPdf").style.display = "none"; }
+  else if (dataUrl) { $("txReceiptPdfLink").href = dataUrl; $("txReceiptPdf").style.display = "block"; $("txReceiptPreview").classList.remove("show"); }
+}
+function handleReceipt(input) {
+  const file = input.files[0]; if (!file) return;
+  if (file.type === "application/pdf") {
+    if (file.size > RECEIPT_MAX_BYTES) { toast("PDF > 1.5 MB", "error"); input.value = ""; return; }
+    const reader = new FileReader();
+    reader.onload = e => { state.pendingReceipt = e.target.result; showReceiptPreview(state.pendingReceipt); };
+    reader.onerror = () => toast("Read error", "error");
+    reader.readAsDataURL(file);
+  } else if (file.type.indexOf("image/") === 0) {
+    const reader = new FileReader();
+    reader.onload = e => {
+      const img = new Image();
+      img.onload = () => {
+        const scale = Math.min(1, 1200 / Math.max(img.width, img.height));
+        const c = document.createElement("canvas");
+        c.width = Math.round(img.width * scale); c.height = Math.round(img.height * scale);
+        c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+        const dataUrl = c.toDataURL("image/jpeg", 0.72);
+        if (dataUrl.length > RECEIPT_MAX_BYTES * 1.4) { toast("Image too large", "error"); input.value = ""; return; }
+        state.pendingReceipt = dataUrl; showReceiptPreview(dataUrl);
+      };
+      img.onerror = () => toast("Read error", "error");
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  } else { toast("Images or PDF only", "error"); input.value = ""; }
+}
+async function saveTx() {
+  const amount = Math.round(parseFloat($("txAmount").value) * 100) / 100;
+  if (!amount || amount <= 0) { toast(T("l_amount"), "error"); return; }
+  if (!$("txCat").value) { toast(T("l_category"), "error"); return; }
+  const getName = sel => { const v = $(sel).value; if (!v) return ""; const c = state.cats.find(x => x.path === v); return c ? c.name : ""; };
+  const old = state.editingId ? state.txns.find(x => x.id === state.editingId) : null;
+  const partyId = $("txParty").value || "";
+  const party = state.parties.find(p => p.id === partyId);
+  const credit = !!(party && $("txCredit").checked);
+  const t = {
+    id: old ? old.id : uid(),
+    date: $("txDate").value || today(),
+    type: state.txType,
+    account: credit ? "" : state.txAccount,
+    credit: credit,
+    partyId: partyId, partyName: party ? party.name : "",
+    bookId: old ? (old.bookId || state.bookId) : state.bookId,
+    category: getName("txCat") || "Miscellaneous",
+    subcategory: getName("txSub"),
+    item: getName("txItem"),
+    amount: amount,
+    vat: $("txVat").checked,
+    ref: $("txRef").value.trim(),
+    description: $("txDesc").value.trim(),
+    receipt: state.pendingReceipt !== null ? state.pendingReceipt : (old ? (old.receipt || "") : ""),
+    createdAt: old ? old.createdAt : new Date().toISOString(),
+    createdByDevice: old ? (old.createdByDevice || deviceName()) : deviceName(),
+    updatedAt: new Date().toISOString(),
+    updatedByDevice: deviceName()
+  };
+  await DB.put("transactions", t);
+  state.editingId = null; state.pendingReceipt = null;
+  closeSheet("txSheet"); await loadAll();
+  toast(T("save") + " ✓", "success");
 }
 
-/* ── CSV / JSON export, import ───────────────────────────────── */
+/* ═══ Transfer ═══ */
+function openTransfer(editId) {
+  state.editingId = editId || null;
+  $("trDate").value = today(); $("trAmount").value = ""; $("trRef").value = ""; $("trDesc").value = "";
+  if (editId) {
+    const t = state.txns.find(x => x.id === editId);
+    if (t) { $("trFrom").value = t.from; $("trTo").value = t.to; $("trDate").value = t.date; $("trAmount").value = t.amount; $("trRef").value = t.ref || ""; $("trDesc").value = t.description || ""; $("trTitle").textContent = T("tx_edit"); $("trSaveBtn").textContent = T("save"); }
+  } else { $("trTitle").textContent = T("tr_title"); $("trSaveBtn").textContent = T("tr_save"); }
+  openSheet("trSheet");
+}
+async function saveTransfer() {
+  const from = $("trFrom").value, to = $("trTo").value;
+  const amount = Math.round(parseFloat($("trAmount").value) * 100) / 100;
+  if (from === to) { toast("✗", "error"); return; }
+  if (!amount || amount <= 0) { toast(T("l_amount"), "error"); return; }
+  if (!state.editingId) {
+    const avail = from === "Bank" ? (state.bal ? state.bal.bank : 0) : (state.bal ? state.bal.petty : 0);
+    if (amount > avail) { toast("Insufficient funds", "error"); return; }
+  }
+  const old = state.editingId ? state.txns.find(x => x.id === state.editingId) : null;
+  await DB.put("transactions", {
+    id: old ? old.id : uid(), date: $("trDate").value || today(), type: "Transfer",
+    from: from, to: to, amount: amount, ref: $("trRef").value.trim(), description: $("trDesc").value.trim(),
+    bookId: old ? (old.bookId || state.bookId) : state.bookId,
+    createdAt: old ? old.createdAt : new Date().toISOString(),
+    createdByDevice: old ? (old.createdByDevice || deviceName()) : deviceName(),
+    updatedAt: new Date().toISOString(), updatedByDevice: deviceName()
+  });
+  state.editingId = null; closeSheet("trSheet"); await loadAll(); toast(T("tr_save") + " ✓", "success");
+}
+
+/* ═══ Detail sheet ═══ */
+function openDetail(id) {
+  const t = state.txns.find(x => x.id === id); if (!t) return;
+  state.detailId = id;
+  const acctRow = t.type === "Transfer"
+    ? [T("d_account"), (t.from === "Bank" ? "🏦 Bank" : "💼 Petty") + " → " + (t.to === "Bank" ? "🏦 Bank" : "💼 Petty")]
+    : [T("d_account"), t.credit ? "— (" + T("d_credit") + ")" : (t.account === "Bank" ? "🏦 Bank" : "💼 Petty Cash")];
+  const rows = [
+    [T("d_type"), escapeHtml(t.type) + (t.vat ? ' <span class="badge-vat">TRN</span>' : "")],
+    acctRow,
+    [T("d_date"), formatDate(t.date)],
+    [T("d_amount"), "<b>" + fmt(t.amount) + "</b>"],
+    [T("d_category"), escapeHtml([t.category, t.subcategory, t.item].filter(Boolean).join(" › ") || "—")],
+    [T("d_party"), escapeHtml(t.partyName || "—")],
+    [T("d_ref"), escapeHtml(t.ref || "—")],
+    [T("d_desc"), escapeHtml(t.description || "—")],
+    [T("d_created"), (t.createdAt ? new Date(t.createdAt).toLocaleString() : "—") + (t.createdByDevice ? " · " + escapeHtml(t.createdByDevice) : "")],
+    [T("d_updated"), (t.updatedAt ? new Date(t.updatedAt).toLocaleString() : "—") + (t.updatedByDevice ? " · " + escapeHtml(t.updatedByDevice) : "")]
+  ];
+  $("detailBody").innerHTML = rows.map(r => '<div class="d-row"><div class="d-label">' + r[0] + '</div><div class="d-val">' + r[1] + "</div></div>").join("") +
+    (t.receipt ? (t.receipt.indexOf("data:image") === 0 ? '<img class="detail-receipt" src="' + t.receipt + '" alt="Receipt">' : '<a class="btn btn-ghost" style="margin-top:12px" href="' + t.receipt + '" target="_blank">📄 PDF</a>') : "");
+  openSheet("detailSheet");
+}
+function editFromDetail() {
+  const t = state.txns.find(x => x.id === state.detailId); if (!t) return;
+  closeSheet("detailSheet");
+  if (t.type === "Transfer") openTransfer(t.id); else openTx(t.type, t.account, t.id);
+}
+async function deleteFromDetail() {
+  const t = state.txns.find(x => x.id === state.detailId); if (!t) return;
+  if (!confirm(T("del") + " — " + fmt(t.amount) + "?")) return;
+  await DB.del("transactions", t.id);
+  closeSheet("detailSheet"); await loadAll(); toast(T("del") + " ✓", "success");
+}
+
+/* ═══ Export / import ═══ */
 function buildCSV(rows) {
   const esc = v => { v = v == null ? "" : String(v); return /[",\n\r]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; };
-  const head = ["Date", "ID", "Type", "Account", "From", "To", "Category", "SubCategory", "Item", "Description", "RefNo", "AmountAED", "VATAED", "Currency"];
+  const head = ["Date", "ID", "Type", "Account", "From", "To", "Category", "SubCategory", "Item", "Description", "RefNo", "AmountAED", "VATAED", "Currency", "Book", "Party", "OnCredit", "CreatedBy", "CreatedAt"];
+  const bookName = id => { const b = state.books.find(x => x.id === (id || "book_main")); return b ? b.name : (id || ""); };
   const lines = [head.join(",")];
-  rows.forEach(t => lines.push([t.date, t.id, t.type, t.account || "", t.from || "", t.to || "", t.category || "", t.subcategory || "", t.item || "", t.description || "", t.ref || "", (Number(t.amount) || 0).toFixed(2), t.vat ? (t.amount * 0.05).toFixed(2) : "0.00", "AED"].map(esc).join(",")));
+  rows.forEach(t => lines.push([t.date, t.id, t.type, t.account || "", t.from || "", t.to || "", t.category || "", t.subcategory || "", t.item || "", t.description || "", t.ref || "", (Number(t.amount) || 0).toFixed(2), t.vat ? (t.amount * 0.05).toFixed(2) : "0.00", "AED", bookName(t.bookId), t.partyName || "", t.credit ? "yes" : "no", t.createdByDevice || "", t.createdAt || ""].map(esc).join(",")));
   return lines.join("\r\n");
 }
 function exportCSV(scope) {
-  let rows = [...state.txns].sort(cmpAsc);
+  let rows = state.txns.filter(inBook).sort(cmpAsc);
   if (scope === "month") { const m = $("repMonth").value || monthPrefix(); rows = rows.filter(t => t.date && t.date.slice(0, 7) === m); }
-  if (!rows.length) { toast("Nothing to export", "error"); return; }
+  if (!rows.length) { toast("—", "error"); return; }
   download("AVA_Finance_" + scope + "_" + today() + ".csv", buildCSV(rows), "text/csv");
-  toast("CSV exported", "success");
+  toast("CSV ✓", "success");
 }
 async function exportJSON() {
-  const data = { app: "ava-finance", version: 1, exportedAt: new Date().toISOString(), currency: "AED", transactions: state.txns, categories: state.cats };
+  const data = { app: "ava-finance", version: 2, exportedAt: new Date().toISOString(), exportedBy: deviceName(), currency: "AED", books: state.books, parties: state.parties, transactions: state.txns, categories: state.cats };
   download("AVA_Backup_" + today() + ".json", JSON.stringify(data), "application/json");
   await DB.put("meta", { key: "lastBackup", value: Date.now() });
-  checkBackupBanner(); updateSettingsInfo(); toast("Backup exported — keep the file safe", "success");
+  checkBackupBanner(); updateSettingsInfo(); toast("JSON ✓", "success");
 }
 async function importJSON(input) {
   const file = input.files[0]; input.value = ""; if (!file) return;
   try {
     const data = JSON.parse(await file.text());
-    if (!data || !Array.isArray(data.transactions)) { toast("Not a valid AVA backup file", "error"); return; }
-    if (!confirm("Replace ALL current data with the " + data.transactions.length + " transactions in this backup?")) return;
-    await DB.clear("transactions"); await DB.clear("categories");
-    for (const t of data.transactions) { t.id = t.id || uid(); if (!t.date) t.date = today(); t.amount = Number(t.amount) || 0; await DB.put("transactions", t); }
-    if (Array.isArray(data.categories) && data.categories.length) { for (const c of data.categories) if (c && c.path) await DB.put("categories", c); await DB.put("meta", { key: "seeded", value: true }); }
-    else await seedIfNeeded();
-    await loadAll(); checkBackupBanner(); toast("Backup restored: " + data.transactions.length + " transactions", "success");
+    if (!data || !Array.isArray(data.transactions)) { toast("Invalid backup", "error"); return; }
+    if (!confirm("Replace ALL current data with " + data.transactions.length + " transactions?")) return;
+    await DB.clear("transactions"); await DB.clear("categories"); await DB.clear("parties"); await DB.clear("books");
+    for (const t of data.transactions) { t.id = t.id || uid(); if (!t.date) t.date = today(); t.amount = Number(t.amount) || 0; if (!t.createdByDevice) t.createdByDevice = deviceName(); await DB.put("transactions", t); }
+    if (Array.isArray(data.books) && data.books.length) for (const b of data.books) if (b && b.id) await DB.put("books", b);
+    if (Array.isArray(data.parties) && data.parties.length) for (const p of data.parties) if (p && p.id) await DB.put("parties", p);
+    if (Array.isArray(data.categories) && data.categories.length) for (const c of data.categories) if (c && c.id) await DB.put("categories", c);
+    await ensureBooks(); if (!state.cats.length) await ensureSeeds(); state.bookId = "book_main"; localStorage.setItem("ava_book", state.bookId);
+    await loadAll(); checkBackupBanner(); toast("Restore ✓ " + data.transactions.length, "success");
   } catch (e) { toast("Import failed: " + e.message, "error"); }
 }
 async function wipeData() {
-  if (!confirm("Erase ALL transactions and categories on this device? Export a backup first!")) return;
-  if (!confirm("Really sure? This cannot be undone.")) return;
-  await DB.clear("transactions"); await DB.clear("categories"); await DB.put("meta", { key: "seeded", value: false });
-  await seedIfNeeded(); await loadAll(); toast("All data erased", "warning");
+  if (!confirm("Erase ALL data on this device? Export a backup first!")) return;
+  if (!confirm("Really sure?")) return;
+  await DB.clear("transactions"); await DB.clear("categories"); await DB.clear("parties");
+  await ensureSeeds(); await ensureBooks(); state.bookId = "book_main"; localStorage.setItem("ava_book", state.bookId);
+  await loadAll(); toast("✓", "warning");
 }
 
-/* ── Backup banner & settings info ───────────────────────────── */
-function checkBackupBanner() {
-  DB.getMeta("lastBackup").then(v => {
-    const stale = !v || (Date.now() - v) > 7 * 24 * 3600 * 1000;
-    $("backupBanner").classList.toggle("show", stale);
-  });
-}
-async function updateSettingsInfo() {
-  const v = await DB.getMeta("lastBackup");
-  $("lastBackup").textContent = v ? new Date(v).toLocaleDateString() : "never";
-  if (navigator.storage && navigator.storage.estimate) {
-    try { const e = await navigator.storage.estimate(); $("storageUsed").textContent = ((e.usage || 0) / 1048576).toFixed(1) + " MB"; } catch (err) {}
-  }
-}
-
-/* ── Boot ────────────────────────────────────────────────────── */
-document.addEventListener("DOMContentLoaded", async () => {
-  applyTheme();
-  try { await DB.open(); } catch (e) { toast("Storage unavailable: " + e.message, "error"); return; }
-  await seedIfNeeded();
-  $("fTo").value = today();
-  if (!$("repMonth").value) $("repMonth").value = monthPrefix();
-  document.querySelectorAll(".nav-item").forEach(b => b.addEventListener("click", () => showSection(b.dataset.sec)));
-  await loadAll(); checkBackupBanner();
-});
-</script>
-<script>
-"use strict";
-/* ── CSV import (Google Sheets export compatible) ────────────── */
+/* ═══ CSV import (Google Sheet exports) ═══ */
 function parseCSVText(text) {
   const rows = []; let row = [], cell = "", inQ = false;
   for (let i = 0; i < text.length; i++) {
@@ -887,13 +1084,10 @@ function parseCSVText(text) {
   if (cell !== "" || row.length) { row.push(cell); rows.push(row); }
   if (!rows.length) return [];
   const heads = rows[0].map(h => h.trim());
-  return rows.slice(1).filter(r => r.length && r.some(x => String(x).trim() !== "")).map(r => {
-    const o = {}; heads.forEach((h, i) => o[h] = (r[i] == null ? "" : String(r[i])).trim()); return o;
-  });
+  return rows.slice(1).filter(r => r.length && r.some(x => String(x).trim() !== "")).map(r => { const o = {}; heads.forEach((h, i) => o[h] = (r[i] == null ? "" : String(r[i])).trim()); return o; });
 }
 function normalizeDate(v) {
-  v = String(v || "").trim();
-  if (!v) return today();
+  v = String(v || "").trim(); if (!v) return today();
   let m = v.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
   if (m) return m[1] + "-" + m[2].padStart(2, "0") + "-" + m[3].padStart(2, "0");
   m = v.match(/^(\d{1,2})[\/\-.](\d{1,2})[\/\-.](\d{4})/);
@@ -903,7 +1097,7 @@ function normalizeDate(v) {
 }
 function matchCategory(name, type) {
   const nm = String(name || "").trim().toLowerCase();
-  const aliases = { revenue: "Client Payments", salary: "Driver Salaries", telecom: "Utilities", "du/etisalat": "Utilities", "meals": "Meals & Accommodation" };
+  const aliases = { revenue: "Client Payments", salary: "Driver Salaries", telecom: "Utilities", "meals": "Meals & Accommodation" };
   const hit = state.cats.find(c => c.level === 0 && c.type === type && c.name.toLowerCase() === nm)
     || state.cats.find(c => c.level === 0 && c.type === type && c.name.toLowerCase() === (aliases[nm] || "").toLowerCase());
   return hit ? hit.name : "Miscellaneous";
@@ -913,50 +1107,62 @@ async function importCSV(input) {
   const file = input.files[0]; input.value = ""; if (!file) return;
   try {
     const raw = parseCSVText(await file.text());
-    if (!raw.length) { toast("No data rows found in this CSV", "error"); return; }
+    if (!raw.length) { toast("Empty CSV", "error"); return; }
     const target = $("csvAccount").value;
-    const out = []; let skippedTransfers = 0, skippedBad = 0;
+    const out = []; let skipped = 0, bad = 0;
     for (const r of raw) {
       const desc = r.Description || r.description || "";
       const typeRaw = (r.Type || r.type || "Expense").trim();
       const amount = Math.abs(parseFloat(String(r.Amount != null ? r.Amount : (r.amount || "")).replace(/,/g, ""))) || 0;
-      if (!amount) { skippedBad++; continue; }
-      // old Sheet transfer rows: "Transfer from X" rows are skipped (their "Transfer to" pair carries the move)
-      const tfFrom = desc.match(/^Transfer from\s+(.+)$/i);
-      if (typeRaw === "Transfer" || tfFrom) { if (tfFrom) skippedTransfers++; continue; }
+      if (!amount) { bad++; continue; }
+      if (desc.match(/^Transfer from\s+(.+)$/i) || (typeRaw === "Transfer" && !desc.match(/^Transfer to/i))) { skipped++; continue; }
       const tfTo = desc.match(/^Transfer to\s+(.+)$/i);
       if (tfTo) {
-        const dest = /petty/i.test(tfTo[1]) ? "PettyCash" : "Bank";
-        out.push({ id: (r.ID || r.Id || "") || uid(), date: normalizeDate(r.Date || r.date), type: "Transfer", from: target, to: dest, amount: amount, ref: r.RefNo || r.Ref || "", description: desc, vat: false, createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() });
+        out.push({ id: r.ID || r.Id || uid(), date: normalizeDate(r.Date || r.date), type: "Transfer", from: target, to: /petty/i.test(tfTo[1]) ? "PettyCash" : "Bank", amount: amount, ref: r.RefNo || r.Ref || "", description: desc, credit: false, bookId: state.bookId, createdAt: new Date().toISOString(), createdByDevice: deviceName(), updatedAt: new Date().toISOString(), updatedByDevice: deviceName() });
         continue;
       }
       const type = /income/i.test(typeRaw) ? "Income" : "Expense";
-      out.push({
-        id: (r.ID || r.Id || "") || uid(),
-        date: normalizeDate(r.Date || r.date),
-        type: type,
-        account: target,
-        category: matchCategory(r.Category || r.category, type),
-        subcategory: "", item: "",
-        amount: amount,
-        vat: isTruthy(r.VAT || r.TRN),
-        ref: r.RefNo || r.Ref || r.Cheque || "",
-        description: desc,
-        receipt: "",
-        createdAt: new Date().toISOString(), updatedAt: new Date().toISOString()
-      });
+      let partyId = "", partyName = "";
+      const pname = (r.Party || "").trim();
+      if (pname) {
+        let p = state.parties.find(x => x.name.toLowerCase() === pname.toLowerCase());
+        if (!p) { p = { id: uid(), name: pname, ptype: type === "Income" ? "Customer" : "Supplier", phone: "", createdAt: new Date().toISOString(), createdByDevice: deviceName() }; await DB.put("parties", p); state.parties.push(p); }
+        partyId = p.id; partyName = p.name;
+      }
+      out.push({ id: r.ID || r.Id || uid(), date: normalizeDate(r.Date || r.date), type: type, account: target, credit: false, partyId: partyId, partyName: partyName, bookId: state.bookId, category: matchCategory(r.Category || r.category, type), subcategory: "", item: "", amount: amount, vat: isTruthy(r.VAT || r.TRN), ref: r.RefNo || r.Ref || r.Cheque || "", description: desc, receipt: "", createdAt: new Date().toISOString(), createdByDevice: deviceName(), updatedAt: new Date().toISOString(), updatedByDevice: deviceName() });
     }
-    if (!out.length) { toast("No importable rows found", "error"); return; }
-    const msg = "Import " + out.length + " transactions into " + (target === "Bank" ? "Bank" : "Petty Cash") + "?"
-      + (skippedTransfers ? "\n(" + skippedTransfers + " duplicate 'Transfer from' rows skipped.)" : "")
-      + (skippedBad ? "\n(" + skippedBad + " rows without a valid amount skipped.)" : "")
-      + "\nIf you already imported this file, matching IDs will just be overwritten.";
-    if (!confirm(msg)) return;
+    if (!out.length) { toast("No importable rows", "error"); return; }
+    if (!confirm("Import " + out.length + " → " + target + "? " + (skipped ? "(" + skipped + " transfer duplicates skipped) " : "") + (bad ? "(" + bad + " invalid rows skipped)" : ""))) return;
     for (const t of out) await DB.put("transactions", t);
-    await loadAll(); showSection("ledger");
-    toast("Imported " + out.length + " transactions", "success");
-  } catch (e) { toast("CSV import failed: " + e.message, "error"); }
+    await loadAll(); showSection("ledger"); toast("CSV ✓ " + out.length, "success");
+  } catch (e) { toast("CSV failed: " + e.message, "error"); }
 }
+
+/* ═══ Backup banner / settings info / boot ═══ */
+function checkBackupBanner() {
+  DB.getMeta("lastBackup").then(v => {
+    const stale = !v || (Date.now() - v) > 7 * 24 * 3600 * 1000;
+    $("backupBanner").classList.toggle("show", stale);
+  });
+}
+async function updateSettingsInfo() {
+  const v = await DB.getMeta("lastBackup");
+  $("lastBackup").textContent = v ? new Date(v).toLocaleDateString() : "never";
+  if ($("deviceName") && document.activeElement !== $("deviceName")) $("deviceName").value = deviceName();
+  if (navigator.storage && navigator.storage.estimate) {
+    try { const e = await navigator.storage.estimate(); $("storageUsed").textContent = ((e.usage || 0) / 1048576).toFixed(1) + " MB"; } catch (err) {}
+  }
+}
+document.addEventListener("DOMContentLoaded", async () => {
+  applyTheme(); applyLang();
+  try { await DB.open(); } catch (e) { toast("Storage unavailable", "error"); return; }
+  await ensureSeeds(); await ensureBooks();
+  $("fTo").value = today();
+  if (!$("repMonth").value) $("repMonth").value = monthPrefix();
+  if ($("deviceName")) $("deviceName").value = deviceName();
+  document.querySelectorAll(".nav-item").forEach(b => b.addEventListener("click", () => showSection(b.dataset.sec)));
+  await loadAll(); checkBackupBanner();
+});
 </script>
 </body>
 </html>
