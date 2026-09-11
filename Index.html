@@ -728,7 +728,7 @@ function filteredTxns() {
     if (!inBook(t)) return false;
     if (f.account !== "All") {
       if (t.type === "Transfer") { if (t.from !== f.account && t.to !== f.account) return false; }
-      else if (t.account !== f.account) return false;
+      else if (!t.credit && t.account !== f.account) return false;
     }
     if (f.type !== "All" && t.type !== f.type) return false;
     if (f.from && t.date < f.from) return false;
@@ -829,7 +829,7 @@ async function delCategory(encPath) {
   const path = decodeURIComponent(encPath);
   if (!confirm("Delete '" + path + "'? Existing transactions are not affected.")) return;
   const victims = state.cats.filter(c => c.path === path || c.parent === path || c.parent.indexOf(path + "/") === 0);
-  for (const c of victims) await DB.del("categories", c.path);
+  for (const c of victims) { await DB.del("categories", c.id); await DB.del("categories", c.path); }
   state.cats = await DB.getAll("categories"); renderCatList(); fillCatSelects();
   toast(T("del") + " ✓", "success");
 }
@@ -1049,7 +1049,7 @@ async function importJSON(input) {
     for (const t of data.transactions) { t.id = t.id || uid(); if (!t.date) t.date = today(); t.amount = Number(t.amount) || 0; if (!t.createdByDevice) t.createdByDevice = deviceName(); await DB.put("transactions", t); }
     if (Array.isArray(data.books) && data.books.length) for (const b of data.books) if (b && b.id) await DB.put("books", b);
     if (Array.isArray(data.parties) && data.parties.length) for (const p of data.parties) if (p && p.id) await DB.put("parties", p);
-    if (Array.isArray(data.categories) && data.categories.length) for (const c of data.categories) if (c && c.id) await DB.put("categories", c);
+    if (Array.isArray(data.categories) && data.categories.length) for (const c of data.categories) if (c && c.path) { if (!c.id) c.id = "cat_" + c.path; await DB.put("categories", c); }
     await ensureBooks(); if (!state.cats.length) await ensureSeeds(); state.bookId = "book_main"; localStorage.setItem("ava_book", state.bookId);
     await loadAll(); checkBackupBanner(); toast("Restore ✓ " + data.transactions.length, "success");
   } catch (e) { toast("Import failed: " + e.message, "error"); }
